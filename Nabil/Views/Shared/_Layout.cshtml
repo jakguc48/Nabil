@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    
+<header>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -26,6 +26,7 @@
                     <li>@Html.ActionLink("Menu", "Index", "Dishes")</li>
                     <li>@Html.ActionLink("O nas", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                    <li><a href="https://www.facebook.com/" target="_blank"><img src="~/Content/Images/facebook.png"/></a></li>
 
 
 
@@ -34,16 +35,23 @@
             </div>
         </div>
     </div>
+</header>
 
 <div class="container body-content">
     @RenderBody()
     <hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year - Vegan Falafel Nabil</p>
-        <p>@Html.Partial("_LoginPartial")</p>
-    </footer>
-</div>
 
+</div>
+<footer>
+    @*<p>&copy; @DateTime.Now.Year - Vegan Falafel Nabil</p>
+        <p>@Html.Partial("_LoginPartial")</p>*@
+
+    <div class="footer-containerA">
+        <div id="footer-leftA">  @DateTime.Now.Year - Vegan Falafel Nabil </div>
+        <div id="footer-rightA">@Html.Partial("_LoginPartial")</div>
+    </div>
+
+</footer>
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
 @RenderSection("scripts", required: false)

@@ -25,7 +25,7 @@ aside,
 details,
 figcaption,
 figure,
-footer,
+
 header,
 hgroup,
 main,
@@ -35,6 +35,34 @@ section,
 summary {
   display: block;
 }
+
+header{
+    background:url(Images/naglowek5.png);
+    background-repeat:repeat;
+    background-attachment:fixed;
+    height:300px;
+}
+
+footer{
+    background:rgba(73, 123, 61, 1);
+    height:200px;
+}
+.footer-containerA{
+    margin:20px auto;
+    width:1000px;
+}
+.footer-containerA #footer-leftA{
+    margin-top:20px;
+    float:left;
+    width:500px;
+}
+.footer-containerA #footer-rightA{
+    margin-top:20px;
+    float:right;
+    width:500px;
+}
+
+
 audio,
 canvas,
 progress,
@@ -4593,8 +4621,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #444444;
 }
 .navbar-inverse {
-  background-color: #446e9b;
-  border-color: #345578;
+  background-color: black;
+  border-color: black;
 }
 .navbar-inverse .navbar-brand {
   color: #dddddd;
@@ -4628,18 +4656,18 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   background-color: transparent;
 }
 .navbar-inverse .navbar-toggle {
-  border-color: #345578;
+  border-color: black;
 }
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
-  background-color: #345578;
+  background-color: black;
 }
 .navbar-inverse .navbar-toggle .icon-bar {
   background-color: #ffffff;
 }
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-  border-color: #395c82;
+  border-color: black;
 }
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
@@ -4649,10 +4677,10 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 @media (max-width: 767px) {
   .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
-    border-color: #345578;
+    border-color: black;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
-    background-color: #345578;
+    background-color: black;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
     color: #dddddd;
@@ -6768,16 +6796,15 @@ button.close {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 .navbar-inverse {
-  background-image: -webkit-linear-gradient(#6d94bf, #446e9b 50%, #3e648d);
-  background-image: -o-linear-gradient(#6d94bf, #446e9b 50%, #3e648d);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#6d94bf), color-stop(50%, #446e9b), to(#3e648d));
-  background-image: linear-gradient(#6d94bf, #446e9b 50%, #3e648d);
-  background-repeat: no-repeat;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6d94bf', endColorstr='#ff3e648d', GradientType=0);
-  -webkit-filter: none;
-          filter: none;
-  border: 1px solid #345578;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+   
+    background: rgba(0, 0, 0, 0.8);
+
+    background-repeat: no-repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6d94bf', endColorstr='#ff3e648d', GradientType=0);
+    -webkit-filter: none;
+    filter: none;
+    border: 1px solid #345578;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 .navbar-inverse .badge {
   background-color: #fff;

@@ -22,3 +22,7 @@ select,
 textarea {
     max-width: 280px;
 }
+footer {
+    padding-left: 0px;
+    padding-right: 0px;
+}
