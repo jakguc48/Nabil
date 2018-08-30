@@ -23,7 +23,7 @@ namespace Nabil
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/bootstrap-Spacelab.css",
+                "~/Content/bootstrap-falafel.css",
                       "~/Content/site.css"));
         }
     }

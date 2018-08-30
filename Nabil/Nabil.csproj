@@ -228,7 +228,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-SpaceLab.css" />
+    <Content Include="Content\bootstrap-falafel.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -244,6 +244,16 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\Lato-Black.ttf" />
+    <Content Include="fonts\Lato-BlackItalic.ttf" />
+    <Content Include="fonts\Lato-Bold.ttf" />
+    <Content Include="fonts\Lato-BoldItalic.ttf" />
+    <Content Include="fonts\Lato-Hairline.ttf" />
+    <Content Include="fonts\Lato-HairlineItalic.ttf" />
+    <Content Include="fonts\Lato-Italic.ttf" />
+    <Content Include="fonts\Lato-Light.ttf" />
+    <Content Include="fonts\Lato-LightItalic.ttf" />
+    <Content Include="fonts\Lato-Regular.ttf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
