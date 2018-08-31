@@ -11,6 +11,15 @@ namespace Nabil.ViewModels
     public class DishFormViewModel
     {
 
+
+
+
+
+
+        public Dish Dish { get; set; }
+        public string FormType { get; set; }
+
+
         public int? Id { get; set; }
 
         [Required]
@@ -29,12 +38,6 @@ namespace Nabil.ViewModels
 
         [Display(Name = "Zdjęcie")]
         public byte?[] Img { get; set; }
-
-
-
-
-        public Dish Dish { get; set; }
-        public string FormType { get; set; }
 
         public DishFormViewModel()
         {

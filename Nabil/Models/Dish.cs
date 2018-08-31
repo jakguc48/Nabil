@@ -10,7 +10,7 @@ namespace Nabil.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Proszę wprowadzić nazwę dania")]
         [MaxLength(255)]
         [Display(Name = "Nazwa dania")]
         public string Name { get; set; }

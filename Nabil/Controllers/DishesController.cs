@@ -51,7 +51,8 @@ namespace Nabil.Controllers
 
             var viewModel = new DishFormViewModel
             {
-                FormType = "Nowe danie"
+                FormType = "Nowe danie",
+                Dish = new Dish()
             };
 
             return View("DishForm", viewModel);
@@ -81,9 +82,26 @@ namespace Nabil.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Dish dish)
         {
-           if (dish.Id == 0)
+
+            if (!ModelState.IsValid)
+            {
+                var typ = dish.Id==0 ? "Nowe danie" : "Edytuj danie";
+
+                var viewModel = new DishFormViewModel()
+                {
+
+                    Dish = dish,
+                    FormType = typ
+                
+                    
+                };
+                return View("DishForm", viewModel);
+            }
+            
+            if (dish.Id == 0)
             {
                 _context.Dishes.Add(dish);
             }

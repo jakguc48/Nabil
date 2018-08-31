@@ -11,21 +11,20 @@
 
 @using (Html.BeginForm("Save", "Dishes"))
 {
+    @Html.ValidationSummary()
+
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new
-   {
-       @class = "form-control",
-      
-
-
-   })
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Dish.Name)
 
         @Html.LabelFor(m => m.Kcal)
         @Html.TextBoxFor(m => m.Kcal, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Dish.Kcal)
 
         @Html.LabelFor(m => m.Weight)
         @Html.TextBoxFor(m => m.Weight, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Dish.Weight)
 
         <div class="form-check">
             @Html.CheckBoxFor(m => m.GluteFree)
@@ -45,6 +44,11 @@
 
 
     @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
 
 }
 
+@section scripts
+{
+    @Scripts.Render("~/bundles/jquery")
+}
