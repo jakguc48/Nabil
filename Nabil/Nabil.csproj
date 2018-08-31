@@ -219,13 +219,27 @@
     <Compile Include="Migrations\201808291725328_InitialCreate.Designer.cs">
       <DependentUpon>201808291725328_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808302151497_UpdateDishModel2.cs" />
+    <Compile Include="Migrations\201808302151497_UpdateDishModel2.Designer.cs">
+      <DependentUpon>201808302151497_UpdateDishModel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808302206363_AddIngredientModel.cs" />
+    <Compile Include="Migrations\201808302206363_AddIngredientModel.Designer.cs">
+      <DependentUpon>201808302206363_AddIngredientModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808302246566_UpdateDishModel3.cs" />
+    <Compile Include="Migrations\201808302246566_UpdateDishModel3.Designer.cs">
+      <DependentUpon>201808302246566_UpdateDishModel3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Dish.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\DishFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-falafel.css" />
@@ -234,6 +248,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\facebook.png" />
+    <Content Include="Content\Images\images2.jpg" />
     <Content Include="Content\Images\naglowek5.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -301,6 +316,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Dishes\Details.cshtml" />
     <Content Include="Views\Dishes\Index.cshtml" />
+    <Content Include="Views\Dishes\DishForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -321,6 +337,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808291725328_InitialCreate.resx">
       <DependentUpon>201808291725328_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808302151497_UpdateDishModel2.resx">
+      <DependentUpon>201808302151497_UpdateDishModel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808302206363_AddIngredientModel.resx">
+      <DependentUpon>201808302206363_AddIngredientModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808302246566_UpdateDishModel3.resx">
+      <DependentUpon>201808302246566_UpdateDishModel3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

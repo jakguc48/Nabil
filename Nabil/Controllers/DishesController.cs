@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Nabil.Models;
+using Nabil.ViewModels;
 
 namespace Nabil.Controllers
 {
@@ -41,15 +42,68 @@ namespace Nabil.Controllers
             }
             return View(dish);
         }
+        
 
-
-        private IEnumerable<Dish> GetDishes()
+        [Route("Menu/Nowe-danie")]
+        public ActionResult New()
         {
-            return new List<Dish>
+            
+
+            var viewModel = new DishFormViewModel
             {
-                new Dish {Id = 1, Name = "Falafel"},
-                new Dish {Id = 2, Name = "Manoush"}
+                FormType = "Nowe danie"
             };
+
+            return View("DishForm", viewModel);
         }
+
+
+
+
+
+
+        [Route("Menu/Edytuj-danie/{id:regex(\\d)}")]
+        public ActionResult Edit(int id)
+        {
+            var dish = _context.Dishes.SingleOrDefault(c => c.Id == id);
+            if (dish == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new DishFormViewModel(dish)
+            {
+                Dish = dish,
+                FormType = "Edytuj danie"
+            };
+            
+            return View("DishForm", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Dish dish)
+        {
+           if (dish.Id == 0)
+            {
+                _context.Dishes.Add(dish);
+            }
+            else
+            {
+                var dishInDb = _context.Dishes.Single(c => c.Id == dish.Id);
+
+
+                dishInDb.Name = dish.Name;
+                dishInDb.Kcal = dish.Kcal;
+                dishInDb.Weight = dish.Weight;
+                dishInDb.GluteFree = dish.GluteFree;
+
+            }
+            _context.SaveChanges();
+            
+            return RedirectToAction("Index", "Dishes");
+        }
+
+
+
     }
 }

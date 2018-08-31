@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Web;
+using Nabil.Models;
 
-namespace Nabil.Models
+namespace Nabil.ViewModels
 {
-    public class Dish
+    public class DishFormViewModel
     {
-        public int Id { get; set; }
+
+        public int? Id { get; set; }
 
         [Required]
         [MaxLength(255)]
@@ -27,9 +30,27 @@ namespace Nabil.Models
         [Display(Name = "Zdjęcie")]
         public byte?[] Img { get; set; }
 
-        public Ingredient Ingredient { get; set; }
 
-        public int? IngredientId { get; set; }
+
+
+        public Dish Dish { get; set; }
+        public string FormType { get; set; }
+
+        public DishFormViewModel()
+        {
+            Id = 0;
+        }
+
+        public DishFormViewModel(Dish dish)
+        {
+            Name = dish.Name;
+            Id = dish.Id;
+            Weight = dish.Weight;
+            Kcal = dish.Kcal;
+            GluteFree = dish.GluteFree;
+            Img = dish.Img;
+        }
+
 
     }
 }
