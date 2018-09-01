@@ -231,6 +231,22 @@
     <Compile Include="Migrations\201808302246566_UpdateDishModel3.Designer.cs">
       <DependentUpon>201808302246566_UpdateDishModel3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809011106589_UpdateDishModel4.cs" />
+    <Compile Include="Migrations\201809011106589_UpdateDishModel4.Designer.cs">
+      <DependentUpon>201809011106589_UpdateDishModel4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809011108379_UpdateDishModel5.cs" />
+    <Compile Include="Migrations\201809011108379_UpdateDishModel5.Designer.cs">
+      <DependentUpon>201809011108379_UpdateDishModel5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809011153059_UpdateDishModel6.cs" />
+    <Compile Include="Migrations\201809011153059_UpdateDishModel6.Designer.cs">
+      <DependentUpon>201809011153059_UpdateDishModel6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809011218288_UpdateDishModel7.cs" />
+    <Compile Include="Migrations\201809011218288_UpdateDishModel7.Designer.cs">
+      <DependentUpon>201809011218288_UpdateDishModel7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Dish.cs" />
@@ -346,6 +362,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808302246566_UpdateDishModel3.resx">
       <DependentUpon>201808302246566_UpdateDishModel3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809011106589_UpdateDishModel4.resx">
+      <DependentUpon>201809011106589_UpdateDishModel4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809011108379_UpdateDishModel5.resx">
+      <DependentUpon>201809011108379_UpdateDishModel5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809011153059_UpdateDishModel6.resx">
+      <DependentUpon>201809011153059_UpdateDishModel6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809011218288_UpdateDishModel7.resx">
+      <DependentUpon>201809011218288_UpdateDishModel7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

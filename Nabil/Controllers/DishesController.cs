@@ -114,6 +114,8 @@ namespace Nabil.Controllers
                 dishInDb.Kcal = dish.Kcal;
                 dishInDb.Weight = dish.Weight;
                 dishInDb.GluteFree = dish.GluteFree;
+                dishInDb.Price = dish.Price;
+                dishInDb.DishType = dish.DishType;
 
             }
             _context.SaveChanges();

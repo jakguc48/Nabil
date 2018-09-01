@@ -27,9 +27,12 @@ namespace Nabil.Models
         [Display(Name = "Zdjęcie")]
         public byte?[] Img { get; set; }
 
-        public Ingredient Ingredient { get; set; }
+        [Required(ErrorMessage = "Proszę wprowadzić cenę dania")]
+        [Display(Name = "Cena dania")]
+        public double Price { get; set; }
 
-        public int? IngredientId { get; set; }
+        [Display(Name = "Typ dania")]
+        public string DishType { get; set; }
 
     }
 }

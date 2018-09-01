@@ -18,6 +18,7 @@ namespace Nabil.ViewModels
 
         public Dish Dish { get; set; }
         public string FormType { get; set; }
+        public Dictionary<string, string> DishTypeDictionary { get; set; }
 
 
         public int? Id { get; set; }
@@ -39,9 +40,26 @@ namespace Nabil.ViewModels
         [Display(Name = "Zdjęcie")]
         public byte?[] Img { get; set; }
 
+        [Required(ErrorMessage = "Proszę wprowadzić cenę dania")]
+        [Display(Name = "Cena dania")]
+        public double Price { get; set; }
+
+        [Display(Name = "Typ dania")]
+        public string DishType { get; set; }
+
         public DishFormViewModel()
         {
             Id = 0;
+
+            DishTypeDictionary = new Dictionary<string, string>()
+            {
+                { "Przystawki", "Przystawki"},
+                { "Dania główne", "Dania główne"},
+                { "Dodatki", "Dodatki"},
+                { "Napoje", "Napoje"},
+               
+            };
+
         }
 
         public DishFormViewModel(Dish dish)
@@ -52,6 +70,8 @@ namespace Nabil.ViewModels
             Kcal = dish.Kcal;
             GluteFree = dish.GluteFree;
             Img = dish.Img;
+            Price = dish.Price;
+            DishType = dish.DishType;
         }
 
 
