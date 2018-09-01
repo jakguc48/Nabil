@@ -9,7 +9,8 @@
 
 <h2>@Model.FormType</h2>
 
-@using (Html.BeginForm("Save", "Dishes"))
+@using (Html.BeginForm("Save", "Dishes", FormMethod.Post, 
+    new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary()
 
@@ -36,10 +37,18 @@
             Model.DishTypeDictionary,
             "Key",
             "Value"), new { @class = "form-control" })
-
     @Html.ValidationMessageFor(m => m.DishType)
+    
+    
+    @if (Model.FormType.Equals("Nowe danie"))
+    {
+    
+        @Html.LabelFor(m => m.ImgUrl)
+        <input type="file" name="UploadImage" id="UploadImage"/>
 
+    }
 
+   
 
     <div class="form-check">
         @Html.CheckBoxFor(m => m.GluteFree)
@@ -47,6 +56,10 @@
             Danie bezglutenowe?
         </label>
     </div>
+
+
+
+
 </div>
     if (Model.FormType.Equals("Nowe danie"))
     {

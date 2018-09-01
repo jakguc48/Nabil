@@ -24,15 +24,15 @@ namespace Nabil.Models
         [Display(Name = "Czy bezglutenowe?")]
         public bool GluteFree { get; set; }
 
-        [Display(Name = "Zdjęcie")]
-        public byte?[] Img { get; set; }
-
         [Required(ErrorMessage = "Proszę wprowadzić cenę dania")]
         [Display(Name = "Cena dania")]
         public double Price { get; set; }
 
         [Display(Name = "Typ dania")]
         public string DishType { get; set; }
+
+        [Display(Name = "Obrazek")]
+        public string ImgUrl { get; set; }
 
     }
 }

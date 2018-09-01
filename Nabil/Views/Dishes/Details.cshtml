@@ -55,6 +55,17 @@
         <dd>
             @Html.DisplayFor(model => model.DishType)
         </dd>
+        @if (Model.ImgUrl != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.ImgUrl)
+            </dt>
+
+            <dd>
+                <img src='@Url.Content("~/Content/Images/Dishes/" + Model.ImgUrl.ToString())'/>
+            </dd>
+        }
+       
 
     </dl>
 </div>

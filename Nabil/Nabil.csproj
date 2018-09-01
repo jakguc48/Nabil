@@ -247,6 +247,10 @@
     <Compile Include="Migrations\201809011218288_UpdateDishModel7.Designer.cs">
       <DependentUpon>201809011218288_UpdateDishModel7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809011652118_UpdateDishModel8.cs" />
+    <Compile Include="Migrations\201809011652118_UpdateDishModel8.Designer.cs">
+      <DependentUpon>201809011652118_UpdateDishModel8.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Dish.cs" />
@@ -255,7 +259,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\DishFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-falafel.css" />
@@ -336,6 +339,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\Dishes\" />
+    <Folder Include="Content\Images\Ingredients\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -374,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809011218288_UpdateDishModel7.resx">
       <DependentUpon>201809011218288_UpdateDishModel7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809011652118_UpdateDishModel8.resx">
+      <DependentUpon>201809011652118_UpdateDishModel8.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -83,7 +84,7 @@ namespace Nabil.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(Dish dish)
+        public ActionResult Save(Dish dish, HttpPostedFileBase UploadImage)
         {
 
             if (!ModelState.IsValid)
@@ -100,10 +101,33 @@ namespace Nabil.Controllers
                 };
                 return View("DishForm", viewModel);
             }
-            
+
+            if (UploadImage != null)
+            {
+                if (UploadImage.ContentType == "image/jpg" || UploadImage.ContentType == "image/png" || UploadImage.ContentType == "image/gif" || UploadImage.ContentType == "image/jpeg")
+                {
+                    UploadImage.SaveAs(Server.MapPath("/") + "Content/Images/Dishes/" + UploadImage.FileName);
+                    dish.ImgUrl = UploadImage.FileName;
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Dishes");
+                }
+
+            }
+            else
+            {
+                dish.ImgUrl = null;
+
+            }
+
+
+
             if (dish.Id == 0)
             {
                 _context.Dishes.Add(dish);
+                
+
             }
             else
             {
@@ -116,6 +140,7 @@ namespace Nabil.Controllers
                 dishInDb.GluteFree = dish.GluteFree;
                 dishInDb.Price = dish.Price;
                 dishInDb.DishType = dish.DishType;
+                //dishInDb.ImgUrl = dish.ImgUrl;
 
             }
             _context.SaveChanges();
