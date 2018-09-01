@@ -149,6 +149,59 @@ namespace Nabil.Controllers
         }
 
 
+        
+        [Route("Menu/Zmiana-zdjecia/{id:regex(\\d)}")]
+        public ActionResult ChangePhoto(int id)
+        {
+            var dish = _context.Dishes.SingleOrDefault(c => c.Id == id);
+            if (dish == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new DishFormViewModel(dish)
+            {
+                Dish = dish,
+                FormType = "Zmiana zdjęcia"
+            };
+
+            return View("ChangePhoto", viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SavePhoto(Dish dish, HttpPostedFileBase UploadImage)
+        {
+            
+            if (UploadImage != null)
+            {
+                if (UploadImage.ContentType == "image/jpg" || UploadImage.ContentType == "image/png" || UploadImage.ContentType == "image/gif" || UploadImage.ContentType == "image/jpeg")
+                {
+                    UploadImage.SaveAs(Server.MapPath("/") + "Content/Images/Dishes/" + UploadImage.FileName);
+                    dish.ImgUrl = UploadImage.FileName;
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Dishes");
+                }
+
+            }
+            else
+            {
+                dish.ImgUrl = null;
+
+            }
+
+            var dishInDb = _context.Dishes.Single(c => c.Id == dish.Id);
+
+            dishInDb.ImgUrl = dish.ImgUrl;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Dishes");
+
+        }
+
 
     }
 }

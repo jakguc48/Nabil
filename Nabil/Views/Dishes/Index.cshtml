@@ -21,7 +21,7 @@ else
                 <th>ID</th>
                 <th>Nazwa</th>
                 <th>Edytuj</th>
-                <th>Usuń</th>
+                <th>Zmień zdjęcie</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +31,7 @@ else
                     <td> @dish.Id</td>
                     <td>@Html.ActionLink(dish.Name, "Details", "Dishes", new { id = dish.Id }, null)</td>
                     <td>@Html.ActionLink("Edytuj", "Edit", "Dishes", new { id = dish.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+                    <td>@Html.ActionLink("Zmień zdjęcie", "ChangePhoto", "Dishes", new { id = dish.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
                 </tr>
             }
         </tbody>

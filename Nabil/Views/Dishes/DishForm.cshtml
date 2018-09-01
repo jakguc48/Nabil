@@ -2,65 +2,67 @@
 @using Nabil.Models
 @model Nabil.ViewModels.DishFormViewModel
 
+
 @{
-    ViewBag.Title = "Nowe Danie";
+    ViewBag.Title = Model.FormType;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h2>@Model.FormType</h2>
 
-@using (Html.BeginForm("Save", "Dishes", FormMethod.Post, 
+@using (Html.BeginForm("Save", "Dishes", FormMethod.Post,
     new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary()
 
-<div class="form-group">
-    @Html.LabelFor(m => m.Name)
-    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-    @Html.ValidationMessageFor(c => c.Dish.Name)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Dish.Name)
 
-    @Html.LabelFor(m => m.Kcal)
-    @Html.TextBoxFor(m => m.Kcal, new { @class = "form-control" })
-    @Html.ValidationMessageFor(c => c.Dish.Kcal)
+        @Html.LabelFor(m => m.Kcal)
+        @Html.TextBoxFor(m => m.Kcal, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Dish.Kcal)
 
-    @Html.LabelFor(m => m.Weight)
-    @Html.TextBoxFor(m => m.Weight, new { @class = "form-control" })
-    @Html.ValidationMessageFor(c => c.Dish.Weight)
+        @Html.LabelFor(m => m.Weight)
+        @Html.TextBoxFor(m => m.Weight, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Dish.Weight)
 
-    @Html.LabelFor(m => m.Price)
-    @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
-    @Html.ValidationMessageFor(c => c.Dish.Price)
+        @Html.LabelFor(m => m.Price)
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Dish.Price)
 
-    @Html.LabelFor(m => m.DishType)
-    @Html.DropDownListFor(m => m.DishType,
-        new SelectList(
-            Model.DishTypeDictionary,
-            "Key",
-            "Value"), new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.DishType)
-    
-    
-    @if (Model.FormType.Equals("Nowe danie"))
-    {
-    
-        @Html.LabelFor(m => m.ImgUrl)
-        <input type="file" name="UploadImage" id="UploadImage"/>
+        @Html.LabelFor(m => m.DishType)
+        @Html.DropDownListFor(m => m.DishType,
+            new SelectList(
+                Model.DishTypeDictionary,
+                "Key",
+                "Value"), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DishType)
 
-    }
 
-   
+        @if (Model.FormType.Equals("Nowe danie"))
+        {
 
-    <div class="form-check">
-        @Html.CheckBoxFor(m => m.GluteFree)
-        <label>
-            Danie bezglutenowe?
-        </label>
+            @Html.LabelFor(m => m.ImgUrl)
+            <input type="file" name="UploadImage" id="UploadImage" />
+
+        }
+
+
+
+        <div class="form-check">
+            @Html.CheckBoxFor(m => m.GluteFree)
+            <label>
+                Danie bezglutenowe?
+            </label>
+        </div>
+
+
+
+
     </div>
-
-
-
-
-</div>
     if (Model.FormType.Equals("Nowe danie"))
     {
         <button type="submit" class="btn btn-primary">Dodaj danie</button>
@@ -80,3 +82,5 @@
 {
     @Scripts.Render("~/bundles/jquery")
 }
+
+
