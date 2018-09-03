@@ -1,0 +1,42 @@
+﻿@using Nabil.Models
+@model IEnumerable<Nabil.Models.Ingredient>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Składniki</h2>
+
+@if (!Model.Any())
+{
+    <p>Nie dodano jeszcze żadnych składników</p>
+}
+
+else
+{
+    <table class="tab1A">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nazwa</th>
+            <th>Zmień nazwę</th>
+            <th>Zmień zdjęcie</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var ingredient in Model)
+        {
+            <tr>
+                <td> @ingredient.Id</td>
+                <td>@Html.ActionLink(ingredient.Name, "Details", "Ingredients", new { id = ingredient.Id }, null)</td>
+                <td>@Html.ActionLink("Edytuj", "Edit", "Ingredients", new { id = ingredient.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+                <td>@Html.ActionLink("Zmień zdjęcie", "ChangePhoto", "Ingredients", new { id = ingredient.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+<br />
+<button onclick="location.href = '@Url.Action("New", "Ingredients")';" , class="btn btn-primary">Dodaj danie</button>

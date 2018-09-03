@@ -1,15 +1,16 @@
 ﻿@using System.Activities.Statements
 @using Nabil.Models
-@model Nabil.ViewModels.DishFormViewModel
+@model Nabil.ViewModels.IngredientFormViewModel
+
 
 @{
-    ViewBag.Title = "Nowe Danie";
+    ViewBag.Title = "ChangePhoto";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>@Model.FormType</h2>
 
-@using (Html.BeginForm("SavePhoto", "Dishes", FormMethod.Post,
+@using (Html.BeginForm("SavePhoto", "Ingredients", FormMethod.Post,
     new { enctype = "multipart/form-data" }))
 {
 
@@ -21,7 +22,7 @@
 
     </div>
 
-   
+
     <input type="submit" class="btn btn-primary" data-confirm="Zapisać zmiany?" value="Zapisz zmiany">
 
 
@@ -29,7 +30,6 @@
     <br />
     <br />
     @Html.ActionLink("Powrót do listy", "Index")
-
 
     @Html.HiddenFor(m => m.Id)
     @Html.AntiForgeryToken()
@@ -39,7 +39,7 @@
 @section scripts
 {
     @Scripts.Render("~/bundles/jquery")
-    
+
     <script>
         jQuery(document).ready(function () {
             jQuery('[data-confirm]').click(function (e) {

@@ -120,9 +120,7 @@ namespace Nabil.Controllers
                 dish.ImgUrl = null;
 
             }
-
-
-
+            
             if (dish.Id == 0)
             {
                 _context.Dishes.Add(dish);

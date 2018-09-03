@@ -1,0 +1,39 @@
+﻿@model Nabil.Models.Ingredient
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Szczegóły</h2>
+
+<div>
+    <h4>Składnik:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        @if (Model.ImgUrl != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.ImgUrl)
+            </dt>
+
+            <dd>
+                <img src='@Url.Content("~/Content/Images/Ingredients/" + Model.ImgUrl.ToString())'/>
+            </dd>
+        }
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Powrót do listy", "Index")
+</p>

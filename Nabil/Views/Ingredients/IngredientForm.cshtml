@@ -1,0 +1,85 @@
+﻿@using System.Activities.Statements
+@using Nabil.Models
+@model Nabil.ViewModels.IngredientFormViewModel
+
+
+@{
+    ViewBag.Title = "IngredientForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.FormType</h2>
+
+
+@using (Html.BeginForm("Save", "Ingredients", FormMethod.Post,
+    new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Ingredient.Name)
+
+
+
+
+        @if (Model.FormType.Equals("Nowy skladnik"))
+        {
+
+            @Html.LabelFor(m => m.ImgUrl)
+            <input type="file" name="UploadImage" id="UploadImage" />
+
+        }
+
+
+
+
+
+
+
+    </div>
+    if (Model.FormType.Equals("Nowy skladnik"))
+    {
+        <input type="submit" class="btn btn-primary" data-confirm="Dodać nowy składnik?" value="Dodaj składnik"/>
+    }
+    else
+    {
+        <input type="submit" class="btn btn-primary" data-confirm="Zapisać zmiany?" value="Zapisz zmiany">
+    }
+
+    
+    <br />
+    <br />
+    <br />
+    @Html.ActionLink("Powrót do listy", "Index")
+
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+
+}
+
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jquery")
+
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('[data-confirm]').click(function (e) {
+                if (!confirm(jQuery(this).attr("data-confirm"))) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+}
+
+
+

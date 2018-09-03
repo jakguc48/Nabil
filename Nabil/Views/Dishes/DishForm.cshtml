@@ -65,12 +65,19 @@
     </div>
     if (Model.FormType.Equals("Nowe danie"))
     {
-        <button type="submit" class="btn btn-primary">Dodaj danie</button>
+        <input type="submit" class="btn btn-primary" data-confirm="Dodać nowe danie?" value="Dodaj danie">
     }
     else
     {
-        <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+        <input type="submit" class="btn btn-primary" data-confirm="Zapisać zmiany?" value="Zapisz zmiany">
     }
+
+
+    <br />
+    <br />
+    <br />
+    @Html.ActionLink("Powrót do listy", "Index")
+
 
 
     @Html.HiddenFor(m => m.Id)
@@ -81,6 +88,16 @@
 @section scripts
 {
     @Scripts.Render("~/bundles/jquery")
+
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('[data-confirm]').click(function (e) {
+                if (!confirm(jQuery(this).attr("data-confirm"))) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 }
 
 

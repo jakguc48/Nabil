@@ -211,6 +211,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DishesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IngredientsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -251,6 +252,10 @@
     <Compile Include="Migrations\201809011652118_UpdateDishModel8.Designer.cs">
       <DependentUpon>201809011652118_UpdateDishModel8.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809031734496_UpdateIngredientModel1.cs" />
+    <Compile Include="Migrations\201809031734496_UpdateIngredientModel1.Designer.cs">
+      <DependentUpon>201809031734496_UpdateIngredientModel1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Dish.cs" />
@@ -260,8 +265,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\DishFormViewModel.cs" />
+    <Compile Include="ViewModels\IngredientFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-Nabil-20180829070115.mdf" />
+    <Content Include="App_Data\aspnet-Nabil-20180829070115_log.ldf">
+      <DependentUpon>aspnet-Nabil-20180829070115.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-falafel.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -338,9 +348,12 @@
     <Content Include="Views\Dishes\Index.cshtml" />
     <Content Include="Views\Dishes\DishForm.cshtml" />
     <Content Include="Views\Dishes\ChangePhoto.cshtml" />
+    <Content Include="Views\Ingredients\Index.cshtml" />
+    <Content Include="Views\Ingredients\Details.cshtml" />
+    <Content Include="Views\Ingredients\IngredientForm.cshtml" />
+    <Content Include="Views\Ingredients\ChangePhoto.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Content\Images\Dishes\" />
     <Folder Include="Content\Images\Ingredients\" />
   </ItemGroup>
@@ -384,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809011652118_UpdateDishModel8.resx">
       <DependentUpon>201809011652118_UpdateDishModel8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809031734496_UpdateIngredientModel1.resx">
+      <DependentUpon>201809031734496_UpdateIngredientModel1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
