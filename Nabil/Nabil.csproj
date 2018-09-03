@@ -279,6 +279,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\facebook.png" />
     <Content Include="Content\Images\images2.jpg" />
+    <Content Include="Content\Images\nabil_logo.png" />
     <Content Include="Content\Images\naglowek5.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
