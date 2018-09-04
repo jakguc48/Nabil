@@ -300,6 +300,8 @@
     <Content Include="fonts\Lato-Light.ttf" />
     <Content Include="fonts\Lato-LightItalic.ttf" />
     <Content Include="fonts\Lato-Regular.ttf" />
+    <Content Include="ConnectionStrings.config" />
+    <Content Include="PrivateSettings.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

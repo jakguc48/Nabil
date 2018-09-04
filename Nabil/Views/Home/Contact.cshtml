@@ -1,4 +1,5 @@
-﻿@{
+﻿@using System.Configuration
+@{
     ViewBag.Title = "Contact";
 }
 <h2>@ViewBag.Title.</h2>
@@ -15,3 +16,62 @@
     <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
 </address>
+
+<h3>Jak nas znaleźć:</h3>
+<br />
+<br />
+
+
+<script src=@("https://maps.googleapis.com/maps/api/js?v=3.exp&key=" +ConfigurationManager.AppSettings["GoogleMapApi"])></script>
+
+<div style='overflow:hidden;height:400px;width:520px;'>
+    <div id='gmap_canvas' style='height:400px;width:520px;'>
+    </div>
+    <style>
+        #gmap_canvas img{max-width:none!important;background:none!important}
+    </style>
+</div>
+
+<a href='http://maps-generator.com/pl'>
+    maps-generator.com/pl
+</a>
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jquery")
+
+  
+    <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=dc5c8f1b463a91249142cc7dc6c1c8894eaf9ce1'>
+    </script>
+
+    <script type='text/javascript'>
+        function init_map(){
+            var myOptions =
+            {
+                zoom:14,
+                center:new
+                    google.maps.LatLng(50.257520770762994, 19.02868777513504),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+            marker = new google.maps.Marker({
+                map: map,
+                position: new google.maps.LatLng(50.257520770762994, 19.02868777513504)
+            });
+            infowindow = new google.maps.InfoWindow({
+                content:'<strong>Falafel Nabil</strong><br>Mariacka 26<br>40-001 Katowice Polska<br>'
+            });
+            google.maps.event.addListener(marker, 'click', function(){
+                infowindow.open(map,marker);
+            });
+            infowindow.open(map,marker);
+        }
+        google.maps.event.addDomListener(window, 'load', init_map);
+    </script>
+
+
+
+
+
+}
