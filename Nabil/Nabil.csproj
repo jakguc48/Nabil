@@ -256,6 +256,10 @@
     <Compile Include="Migrations\201809031734496_UpdateIngredientModel1.Designer.cs">
       <DependentUpon>201809031734496_UpdateIngredientModel1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809051835156_ModifyAspNetUsers1.cs" />
+    <Compile Include="Migrations\201809051835156_ModifyAspNetUsers1.Designer.cs">
+      <DependentUpon>201809051835156_ModifyAspNetUsers1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Dish.cs" />
@@ -266,6 +270,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\DishFormViewModel.cs" />
     <Compile Include="ViewModels\IngredientFormViewModel.cs" />
+    <Compile Include="ViewModels\UsersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-Nabil-20180829070115.mdf" />
@@ -403,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809031734496_UpdateIngredientModel1.resx">
       <DependentUpon>201809031734496_UpdateIngredientModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809051835156_ModifyAspNetUsers1.resx">
+      <DependentUpon>201809051835156_ModifyAspNetUsers1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

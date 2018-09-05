@@ -48,10 +48,10 @@ namespace Nabil.Models
 
     public class LoginViewModel
     {
+
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Nazwa użytkownika")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -65,6 +65,10 @@ namespace Nabil.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Nazwa użytkownika")]
+        public string UserName { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -72,13 +76,17 @@ namespace Nabil.Models
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Hasło")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Potwierdź hasło")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Rola")]
+        public string UserRoles { get; set; }
     }
 
     public class ResetPasswordViewModel
