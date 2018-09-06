@@ -360,6 +360,7 @@
     <Content Include="Views\Ingredients\Details.cshtml" />
     <Content Include="Views\Ingredients\IngredientForm.cshtml" />
     <Content Include="Views\Ingredients\ChangePhoto.cshtml" />
+    <Content Include="Views\Dishes\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Dishes\" />

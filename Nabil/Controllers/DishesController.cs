@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Nabil.Models;
@@ -199,6 +200,44 @@ namespace Nabil.Controllers
             return RedirectToAction("Index", "Dishes");
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Dish dish = _context.Dishes.Find(id);
+            if (dish == null)
+            {
+                return HttpNotFound();
+            }
+            return View(dish);
+        }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Dish dish = _context.Dishes.Find(id);
+            _context.Dishes.Remove(dish);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
 
 
     }
