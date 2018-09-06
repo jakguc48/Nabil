@@ -15,7 +15,7 @@ namespace Nabil.Models
         [Display(Name = "Nazwa dania")]
         public string Name { get; set; }
 
-        [Display(Name = "Waga Dania")]
+        [Display(Name = "Waga dania")]
         public short Weight { get; set; }
 
         [Display(Name = "Kaloryczność/100g")]
@@ -33,6 +33,15 @@ namespace Nabil.Models
 
         [Display(Name = "Obrazek")]
         public string ImgUrl { get; set; }
+
+        [Display(Name = "Opis")]
+        public string Description { get; set; }
+
+        [Display(Name = "Waga dania - mała porcja")]
+        public short? WeightSmall { get; set; }
+
+        [Display(Name = "Cena dania - mała porcja")]
+        public double? PriceSmall { get; set; }
 
     }
 }

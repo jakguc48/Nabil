@@ -47,6 +47,15 @@ namespace Nabil.ViewModels
         [Display(Name = "Typ dania")]
         public string DishType { get; set; }
 
+        [Display(Name = "Opis")]
+        public string Description { get; set; }
+
+        [Display(Name = "Waga dania - mała porcja")]
+        public short? WeightSmall { get; set; }
+
+        [Display(Name = "Cena dania - mała porcja")]
+        public double? PriceSmall { get; set; }
+
         public DishFormViewModel()
         {
             Id = 0;
@@ -82,6 +91,9 @@ namespace Nabil.ViewModels
             ImgUrl = dish.ImgUrl;
             Price = dish.Price;
             DishType = dish.DishType;
+            Description = dish.Description;
+            WeightSmall = dish.WeightSmall;
+            PriceSmall = dish.PriceSmall;
         }
 
 

@@ -41,16 +41,28 @@
                 "Value"), new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.DishType)
 
+        @Html.LabelFor(m => m.Description)
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Dish.Description)
+
+        <h4>Opcjonalnie:</h4>
+        @Html.LabelFor(m => m.PriceSmall)
+        @Html.TextBoxFor(m => m.PriceSmall, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Dish.PriceSmall)
+
+        @Html.LabelFor(m => m.WeightSmall)
+        @Html.TextBoxFor(m => m.WeightSmall, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Dish.WeightSmall)
+
+        <br />
 
         @if (Model.FormType.Equals("Nowe danie"))
         {
-
             @Html.LabelFor(m => m.ImgUrl)
             <input type="file" name="UploadImage" id="UploadImage" />
-
         }
 
-
+        <br/>
 
         <div class="form-check">
             @Html.CheckBoxFor(m => m.GluteFree)
@@ -63,7 +75,8 @@
 
 
     </div>
-    if (Model.FormType.Equals("Nowe danie"))
+    <center>
+    @if (Model.FormType.Equals("Nowe danie"))
     {
         <input type="submit" class="btn btn-primary" data-confirm="Dodać nowe danie?" value="Dodaj danie">
     }
@@ -71,7 +84,7 @@
     {
         <input type="submit" class="btn btn-primary" data-confirm="Zapisać zmiany?" value="Zapisz zmiany">
     }
-
+    </center>
 
     <br />
     <br />

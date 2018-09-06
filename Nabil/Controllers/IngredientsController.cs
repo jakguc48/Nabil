@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Nabil.Models;
@@ -188,7 +189,28 @@ namespace Nabil.Controllers
 
         }
 
-
+        
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Ingredient ingredient = _context.Ingredients.Find(id);
+            if (ingredient == null)
+            {
+                return HttpNotFound();
+            }
+            return View(ingredient);
+        }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Ingredient ingredient = _context.Ingredients.Find(id);
+            _context.Ingredients.Remove(ingredient);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
 
 

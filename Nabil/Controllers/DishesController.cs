@@ -139,7 +139,10 @@ namespace Nabil.Controllers
                 dishInDb.GluteFree = dish.GluteFree;
                 dishInDb.Price = dish.Price;
                 dishInDb.DishType = dish.DishType;
-                //dishInDb.ImgUrl = dish.ImgUrl;
+                dishInDb.WeightSmall = dish.WeightSmall;
+                dishInDb.PriceSmall = dish.PriceSmall;
+                dishInDb.Description = dish.Description;
+ 
 
             }
             _context.SaveChanges();

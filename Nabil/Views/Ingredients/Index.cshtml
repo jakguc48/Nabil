@@ -23,6 +23,7 @@ else
             <th>Nazwa</th>
             <th>Zmień nazwę</th>
             <th>Zmień zdjęcie</th>
+            <th>Usuń</th>
         </tr>
         </thead>
         <tbody>
@@ -33,6 +34,7 @@ else
                 <td>@Html.ActionLink(ingredient.Name, "Details", "Ingredients", new { id = ingredient.Id }, null)</td>
                 <td>@Html.ActionLink("Edytuj", "Edit", "Ingredients", new { id = ingredient.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
                 <td>@Html.ActionLink("Zmień zdjęcie", "ChangePhoto", "Ingredients", new { id = ingredient.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+                <td>@Html.ActionLink("Usuń", "Delete", "Ingredients", new { id = ingredient.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
             </tr>
         }
         </tbody>

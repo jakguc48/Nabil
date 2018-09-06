@@ -55,6 +55,33 @@
         <dd>
             @Html.DisplayFor(model => model.DishType)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        @if (Model.WeightSmall.HasValue)
+        { 
+        <dt>
+            @Html.DisplayNameFor(model => model.WeightSmall)
+        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.WeightSmall)
+            </dd>
+        }
+        @if (Model.WeightSmall.HasValue)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.PriceSmall)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PriceSmall)
+            </dd>
+        }
+       
         @if (Model.ImgUrl != null)
         {
             <dt>
@@ -62,10 +89,10 @@
             </dt>
 
             <dd>
-                <img src='@Url.Content("~/Content/Images/Dishes/" + Model.ImgUrl.ToString())'/>
+                <img src='@Url.Content("~/Content/Images/Dishes/" + Model.ImgUrl.ToString())' />
             </dd>
         }
-       
+
 
     </dl>
 </div>

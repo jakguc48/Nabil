@@ -260,6 +260,10 @@
     <Compile Include="Migrations\201809051835156_ModifyAspNetUsers1.Designer.cs">
       <DependentUpon>201809051835156_ModifyAspNetUsers1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809062013562_UpdateDishModel9.cs" />
+    <Compile Include="Migrations\201809062013562_UpdateDishModel9.Designer.cs">
+      <DependentUpon>201809062013562_UpdateDishModel9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Dish.cs" />
@@ -361,6 +365,7 @@
     <Content Include="Views\Ingredients\IngredientForm.cshtml" />
     <Content Include="Views\Ingredients\ChangePhoto.cshtml" />
     <Content Include="Views\Dishes\Delete.cshtml" />
+    <Content Include="Views\Ingredients\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Dishes\" />
@@ -412,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809051835156_ModifyAspNetUsers1.resx">
       <DependentUpon>201809051835156_ModifyAspNetUsers1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809062013562_UpdateDishModel9.resx">
+      <DependentUpon>201809062013562_UpdateDishModel9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
