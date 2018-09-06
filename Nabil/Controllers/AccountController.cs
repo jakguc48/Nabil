@@ -155,7 +155,7 @@ namespace Nabil.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -432,6 +432,11 @@ namespace Nabil.Controllers
 
             base.Dispose(disposing);
         }
+
+
+
+
+      
 
         #region Helpers
         // Used for XSRF protection when adding external logins

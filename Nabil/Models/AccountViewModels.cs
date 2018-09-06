@@ -79,12 +79,20 @@ namespace Nabil.Models
         [Display(Name = "Hasło")]
         public string Password { get; set; }
 
+        [Required]
+        [StringLength(255)]
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        public string LastName { get; set; }
+
         [DataType(DataType.Password)]
         [Display(Name = "Potwierdź hasło")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
+
         [Display(Name = "Rola")]
         public string UserRoles { get; set; }
     }
