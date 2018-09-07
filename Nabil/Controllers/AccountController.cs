@@ -1,14 +1,18 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Nabil.Models;
+using Nabil.ViewModels;
 
 namespace Nabil.Controllers
 {
@@ -155,17 +159,17 @@ namespace Nabil.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName};
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, PhoneNumber = model.PhoneNumber};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
 
@@ -434,9 +438,250 @@ namespace Nabil.Controllers
         }
 
 
+        public ActionResult Index()
+        {
+            var role = (from r in _context.Roles where r.Name.Contains("Pracownik") select r).FirstOrDefault();
+            var users = _context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(role.Id)).ToList();
+
+            var employeeVM = users.Select(user => new UserViewModel
+            {
+                Id = user.Id,
+                Username = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Phone = user.PhoneNumber,
+                RoleName = "Pracownik"
+            }).ToList();
 
 
-      
+            var role2 = (from r in _context.Roles where r.Name.Contains("Admin") select r).FirstOrDefault();
+            var admins = _context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(role2.Id)).ToList();
+
+            var adminVM = admins.Select(user => new UserViewModel
+            {
+                Id = user.Id,
+                Username = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Phone = user.PhoneNumber,
+                RoleName = "Admin"
+            }).ToList();
+
+            var role3 = (from r in _context.Roles where r.Name.Contains("Manager") select r).FirstOrDefault();
+            var managers = _context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(role3.Id)).ToList();
+
+            var managerVM = managers.Select(user => new UserViewModel
+            {
+                Id = user.Id,
+                Username = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Phone = user.PhoneNumber,
+                RoleName = "Manager"
+            }).ToList();
+
+
+            var model = new GroupedUserViewModel { Employees = employeeVM, Admins = adminVM, Managers = managerVM};
+            return View(model);
+
+        }
+
+
+
+
+
+
+
+        public ActionResult Edit(string id)
+        {
+            ApplicationUser appUser = new ApplicationUser();
+            appUser = _context.Users.Find(id);
+            UserEditViewModel user = new UserEditViewModel(appUser)
+            {
+                ApplicationUser = appUser
+            };
+
+            return View(user);
+        }
+
+
+        [HttpPost, ActionName("Edit")]
+        public async Task<ActionResult> EditConfirmed(ApplicationUser user)
+        {
+
+
+            if (!ModelState.IsValid)
+            {
+                return View(user);
+            }
+            var store = new UserStore<ApplicationUser>(new ApplicationDbContext());
+            var manager = new UserManager<ApplicationUser>(store);
+            var currentUser = _context.Users.Find(user.Id);
+            currentUser.FirstName = user.FirstName;
+            currentUser.LastName = user.LastName;
+            currentUser.PhoneNumber = user.PhoneNumber;
+            currentUser.UserName = user.UserName;
+            _context.SaveChanges();
+            TempData["msg"] = "Profile Changes Saved !";
+            return RedirectToAction("Index", "Account");
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public ActionResult ChangeRole(string id)
+        {
+            ApplicationUser appUser = new ApplicationUser();
+            appUser = _context.Users.Find(id);
+            UserEditViewModel user = new UserEditViewModel(appUser)
+            {
+                ApplicationUser = appUser
+            };
+            ViewBag.Name = new SelectList(_context.Roles.Where(u => !u.Name.Contains("Admin"))
+                .ToList(), "Name", "Name");
+
+            return View(user);
+        }
+
+
+
+        [ValidateAntiForgeryToken]
+        [HttpPost, ActionName("ChangeRole")]
+        public async Task<ActionResult> ChangeRoleConfirmed(ApplicationUser user, string UserRole)
+        {
+            
+
+            // THIS LINE IS IMPORTANT
+            var roles = await UserManager.GetRolesAsync(user.Id);
+            await UserManager.RemoveFromRolesAsync(user.Id, roles.ToArray());
+            
+            UserManager.AddToRole(user.Id, UserRole);
+              
+            _context.Entry(user).State = EntityState.Modified;
+
+               
+            
+            TempData["msg"] = "Profile Changes Saved !";
+            return RedirectToAction("Index", "Account");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public ActionResult Delete(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = _context.Users.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<ActionResult> DeleteConfirmed(string id)
+        {
+            var user = await UserManager.FindByIdAsync(id);
+
+            var result = await UserManager.DeleteAsync(user);
+            if (result.Succeeded)
+            {
+                TempData["UserDeleted"] = "User Successfully Deleted";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["UserDeleted"] = "Error Deleting User";
+                return RedirectToAction("Index");
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         #region Helpers
         // Used for XSRF protection when adding external logins

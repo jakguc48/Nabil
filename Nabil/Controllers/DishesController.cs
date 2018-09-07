@@ -204,17 +204,7 @@ namespace Nabil.Controllers
 
         }
 
-
-
-
-
-
-
-
-
-
-
-
+        
         public ActionResult Delete(int? id)
         {
             if (id == null)

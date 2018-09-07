@@ -127,7 +127,6 @@ table {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe4e4e4', GradientType=0);
     -webkit-filter: none;
     filter: none;
-    font-size: 20px;
     border: 0px solid #d5d5d5;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
@@ -5480,7 +5479,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 
     .navbar-collapse.in {
-        overflow-y: auto;
+        overflow-y: visible;
     }
 
 @media (min-width: 768px) {

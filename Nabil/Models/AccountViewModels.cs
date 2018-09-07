@@ -70,8 +70,26 @@ namespace Nabil.Models
 
         [Required]
         [EmailAddress]
+        [DataType(DataType.EmailAddress)]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        [Display(Name = "Imię")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        [Display(Name = "Naziwko")]
+        public string LastName { get; set; }
+
+
+        [Required]
+        [StringLength(255)]
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Telefon")]
+        public string PhoneNumber { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -79,13 +97,7 @@ namespace Nabil.Models
         [Display(Name = "Hasło")]
         public string Password { get; set; }
 
-        [Required]
-        [StringLength(255)]
-        public string FirstName { get; set; }
-
-        [Required]
-        [StringLength(255)]
-        public string LastName { get; set; }
+        
 
         [DataType(DataType.Password)]
         [Display(Name = "Potwierdź hasło")]

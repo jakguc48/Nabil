@@ -14,10 +14,12 @@ namespace Nabil.Models
 
         [Required]
         [StringLength(255)]
+        [Display(Name = "Imię")]
         public string FirstName { get; set; }
 
         [Required]
         [StringLength(255)]
+        [Display(Name = "Naziwsko")]
         public string LastName { get; set; }
 
 

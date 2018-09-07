@@ -1,0 +1,80 @@
+﻿@model Nabil.ViewModels.GroupedUserViewModel
+
+@{
+    ViewBag.Title = "Pracownicy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pracownicy</h2>
+
+
+<br />
+
+<table class="tab1A">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Nazwa użytkownika</th>
+            <th>Imię</th>
+            <th>Naziwsko</th>
+            <th>Telefon</th>
+            <th>Funkcja</th>
+            <th>Edytuj Dane</th>
+            <th>Zmień funkcję</th>
+            <th>Usuń</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var manager in Model.Managers)
+        {
+        <tr>
+            <td>@manager.Email</td>
+            <td>@manager.Username</td>
+            <td>@manager.FirstName</td>
+            <td>@manager.LastName</td>
+            <td>@manager.Phone</td>
+            <td>@manager.RoleName</td>
+            <td>@Html.ActionLink("Edytuj pracownika", "Edit", "Account", new { id = manager.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+            <td>@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new { id = manager.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+            <td>@Html.ActionLink("Usuń pracownika", "Delete", "Account", new { id = manager.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+        </tr>
+        }
+
+        @foreach (var employee in Model.Employees)
+        {
+        <tr>
+            <td>@employee.Email</td>
+            <td>@employee.Username</td>
+            <td>@employee.FirstName</td>
+            <td>@employee.LastName</td>
+            <td>@employee.Phone</td>
+            <td>@employee.RoleName</td>
+            <td>@Html.ActionLink("Edytuj pracownika", "Edit", "Account", new { id = employee.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+            <td>@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new { id = employee.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+            <td>@Html.ActionLink("Usuń pracownika", "Delete", "Account", new { id = employee.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+        </tr>
+        }
+
+        @foreach (var admin in Model.Admins)
+        {
+        <tr>
+
+            <td>@admin.Email</td>
+            <td>@admin.Username</td>
+            <td>@admin.FirstName</td>
+            <td>@admin.LastName</td>
+            <td>@admin.Phone</td>
+            <td>@admin.RoleName</td>
+            <td>@Html.ActionLink("Edytuj pracownika", "Edit", "Account", new { id = admin.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+            <td>@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new { id = admin.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+            <td>@Html.ActionLink("Usuń pracownika", "Delete", "Account", new { id = admin.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+        </tr>
+        }
+    </tbody>
+</table>
+<br />
+<button onclick="location.href = '@Url.Action("Register", "Account")';" , class="btn btn-primary">Zarejestruj nowego użytkownika</button>
+@*@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })*@
+<br />
+<br />
+

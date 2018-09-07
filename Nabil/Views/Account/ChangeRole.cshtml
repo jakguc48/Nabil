@@ -1,0 +1,48 @@
+﻿@model Nabil.ViewModels.UserEditViewModel
+@{
+    ViewBag.Title = "ChangeRole";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Zmiana Funkcji</h2>
+
+@using (Html.BeginForm("ChangeRole", "Account", FormMethod.Post, new { id = Model.Id}))
+{
+
+    <div class="form-group">
+        @Html.Label("Funkcja", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.UserRole, (SelectList)ViewBag.Name, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-actions no-color">
+        <center>
+            <input type="submit" value="Zapisz zmiany" data-confirm="zapisać?" class="btn btn-default" />
+        </center>
+    </div>
+
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.FirstName)
+    @Html.HiddenFor(m => m.LastName)
+    @Html.HiddenFor(m => m.PhoneNumber)
+    @Html.HiddenFor(m => m.Username)
+    @Html.AntiForgeryToken()
+}
+
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jquery")
+
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('[data-confirm]').click(function (e) {
+                if (!confirm(jQuery(this).attr("data-confirm"))) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+}
