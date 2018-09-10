@@ -143,6 +143,7 @@ namespace Nabil.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         public ActionResult Register()
         {
             ViewBag.Name = new SelectList(_context.Roles.Where(u => !u.Name.Contains("Admin"))
@@ -155,6 +156,7 @@ namespace Nabil.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -437,7 +439,7 @@ namespace Nabil.Controllers
             base.Dispose(disposing);
         }
 
-
+        [Authorize(Roles = "Admin, Manager, Pracownik")]
         public ActionResult Index()
         {
             var role = (from r in _context.Roles where r.Name.Contains("Pracownik") select r).FirstOrDefault();
@@ -494,7 +496,7 @@ namespace Nabil.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(string id)
         {
             ApplicationUser appUser = new ApplicationUser();
@@ -509,10 +511,9 @@ namespace Nabil.Controllers
 
 
         [HttpPost, ActionName("Edit")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> EditConfirmed(ApplicationUser user)
         {
-
-
             if (!ModelState.IsValid)
             {
                 return View(user);
@@ -531,21 +532,7 @@ namespace Nabil.Controllers
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        [Authorize(Roles = "Admin")]
         public ActionResult ChangeRole(string id)
         {
             ApplicationUser appUser = new ApplicationUser();
@@ -561,9 +548,9 @@ namespace Nabil.Controllers
         }
 
 
-
         [ValidateAntiForgeryToken]
         [HttpPost, ActionName("ChangeRole")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> ChangeRoleConfirmed(ApplicationUser user, string UserRole)
         {
             
@@ -583,23 +570,7 @@ namespace Nabil.Controllers
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -615,6 +586,7 @@ namespace Nabil.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteConfirmed(string id)
         {
             var user = await UserManager.FindByIdAsync(id);
@@ -631,58 +603,8 @@ namespace Nabil.Controllers
                 return RedirectToAction("Index");
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
+        
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";

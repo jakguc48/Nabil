@@ -24,6 +24,7 @@ namespace Nabil.Controllers
         }
 
         [Route("Skladniki")]
+        [Authorize(Roles = "Admin, Manager, Pracownik")]
         public ActionResult Index()
         {
             var ingredients = _context.Ingredients.ToList();
@@ -31,6 +32,7 @@ namespace Nabil.Controllers
         }
 
         [Route("Skladniki/{id:regex(\\d)}")]
+        [Authorize(Roles = "Admin, Manager, Pracownik")]
         public ActionResult Details(int id)
         {
             var ingredient = _context.Ingredients.SingleOrDefault(c => c.Id == id);
@@ -42,6 +44,7 @@ namespace Nabil.Controllers
         }
 
         [Route("Skladniki/Nowy-skladnik")]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult New()
         {
 
@@ -58,6 +61,7 @@ namespace Nabil.Controllers
 
 
         [Route("Skladniki/edytuj-skladnik/{id:regex(\\d)}")]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Edit(int id)
         {
             var ingredient = _context.Ingredients.SingleOrDefault(c => c.Id == id);
@@ -77,6 +81,7 @@ namespace Nabil.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Save(Ingredient ingredient, HttpPostedFileBase UploadImage)
         {
 
@@ -137,6 +142,7 @@ namespace Nabil.Controllers
 
 
         [Route("Skladniki/Zmiana-zdjecia/{id:regex(\\d)}")]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult ChangePhoto(int id)
         {
             var ingredient = _context.Ingredients.SingleOrDefault(c => c.Id == id);
@@ -157,6 +163,7 @@ namespace Nabil.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult SavePhoto(Ingredient ingredient, HttpPostedFileBase UploadImage)
         {
 
@@ -189,7 +196,7 @@ namespace Nabil.Controllers
 
         }
 
-        
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -203,7 +210,10 @@ namespace Nabil.Controllers
             }
             return View(ingredient);
         }
+
+
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult DeleteConfirmed(int id)
         {
             Ingredient ingredient = _context.Ingredients.Find(id);

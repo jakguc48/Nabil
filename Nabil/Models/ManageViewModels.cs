@@ -12,6 +12,22 @@ namespace Nabil.Models
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
+        public string UserId { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        [Display(Name = "Imię")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        [Display(Name = "Naziwsko")]
+        public string LastName { get; set; }
+
+        [Display(Name = "Naziwsko")]
+        public string UserName { get; set; }
+        
+
     }
 
     public class ManageLoginsViewModel

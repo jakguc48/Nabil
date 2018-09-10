@@ -26,6 +26,7 @@ namespace Nabil.Controllers
 
 
         // GET: Dishes
+        
         [Route("Menu")]
         public ActionResult Index()
         {
@@ -44,8 +45,8 @@ namespace Nabil.Controllers
             }
             return View(dish);
         }
-        
 
+        [Authorize(Roles = "Admin, Manager")]
         [Route("Menu/Nowe-danie")]
         public ActionResult New()
         {
@@ -64,7 +65,7 @@ namespace Nabil.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin, Manager")]
         [Route("Menu/Edytuj-danie/{id:regex(\\d)}")]
         public ActionResult Edit(int id)
         {
@@ -85,6 +86,7 @@ namespace Nabil.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Save(Dish dish, HttpPostedFileBase UploadImage)
         {
 
@@ -153,6 +155,7 @@ namespace Nabil.Controllers
 
         
         [Route("Menu/Zmiana-zdjecia/{id:regex(\\d)}")]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult ChangePhoto(int id)
         {
             var dish = _context.Dishes.SingleOrDefault(c => c.Id == id);
@@ -172,6 +175,7 @@ namespace Nabil.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult SavePhoto(Dish dish, HttpPostedFileBase UploadImage)
         {
             
@@ -204,7 +208,7 @@ namespace Nabil.Controllers
 
         }
 
-        
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -218,6 +222,8 @@ namespace Nabil.Controllers
             }
             return View(dish);
         }
+
+        [Authorize(Roles = "Admin, Manager")]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {

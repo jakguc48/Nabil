@@ -19,9 +19,12 @@
             <th>Naziwsko</th>
             <th>Telefon</th>
             <th>Funkcja</th>
-            <th>Edytuj Dane</th>
-            <th>Zmień funkcję</th>
-            <th>Usuń</th>
+            @if (User.IsInRole("Admin"))
+            {
+                <th>Edytuj Dane</th>
+                <th>Zmień funkcję</th>
+                <th>Usuń</th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -34,9 +37,12 @@
             <td>@manager.LastName</td>
             <td>@manager.Phone</td>
             <td>@manager.RoleName</td>
-            <td>@Html.ActionLink("Edytuj pracownika", "Edit", "Account", new { id = manager.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
-            <td>@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new { id = manager.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
-            <td>@Html.ActionLink("Usuń pracownika", "Delete", "Account", new { id = manager.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+    @if (User.IsInRole("Admin"))
+    {
+        <td>@Html.ActionLink("Edytuj pracownika", "Edit", "Account", new {id = manager.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
+        <td>@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new {id = manager.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
+        <td>@Html.ActionLink("Usuń pracownika", "Delete", "Account", new {id = manager.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
+    }
         </tr>
         }
 
@@ -49,9 +55,12 @@
             <td>@employee.LastName</td>
             <td>@employee.Phone</td>
             <td>@employee.RoleName</td>
-            <td>@Html.ActionLink("Edytuj pracownika", "Edit", "Account", new { id = employee.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
-            <td>@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new { id = employee.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
-            <td>@Html.ActionLink("Usuń pracownika", "Delete", "Account", new { id = employee.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+            @if (User.IsInRole("Admin"))
+            {
+                <td>@Html.ActionLink("Edytuj pracownika", "Edit", "Account", new {id = employee.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
+                <td>@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new {id = employee.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
+                <td>@Html.ActionLink("Usuń pracownika", "Delete", "Account", new {id = employee.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
+            }
         </tr>
         }
 
@@ -65,9 +74,12 @@
             <td>@admin.LastName</td>
             <td>@admin.Phone</td>
             <td>@admin.RoleName</td>
-            <td>@Html.ActionLink("Edytuj pracownika", "Edit", "Account", new { id = admin.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
-            <td>@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new { id = admin.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
-            <td>@Html.ActionLink("Usuń pracownika", "Delete", "Account", new { id = admin.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
+    @if (User.IsInRole("Admin"))
+    {
+        <td>@Html.ActionLink("Edytuj pracownika", "Edit", "Account", new {id = admin.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
+        <td>@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new {id = admin.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
+        <td>@Html.ActionLink("Usuń pracownika", "Delete", "Account", new {id = admin.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
+    }
         </tr>
         }
     </tbody>

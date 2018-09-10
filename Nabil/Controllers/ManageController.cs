@@ -4,9 +4,11 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Nabil.Models;
+using Nabil.ViewModels;
 
 namespace Nabil.Controllers
 {
@@ -15,9 +17,14 @@ namespace Nabil.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext _context;
 
         public ManageController()
         {
+    
+        
+            _context = new ApplicationDbContext();
+        
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -64,13 +71,18 @@ namespace Nabil.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+            ApplicationUser appUser = _context.Users.Find(userId);
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
+                UserId = userId,
+                FirstName = appUser.FirstName,
+                LastName = appUser.LastName,
+                UserName = appUser.UserName
             };
             return View(model);
         }
@@ -215,6 +227,7 @@ namespace Nabil.Controllers
 
         //
         // GET: /Manage/ChangePassword
+        [Authorize(Roles = "Admin, Manager, Pracownik")]
         public ActionResult ChangePassword()
         {
             return View();
@@ -224,6 +237,7 @@ namespace Nabil.Controllers
         // POST: /Manage/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Manager, Pracownik")]
         public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
         {
             if (!ModelState.IsValid)
@@ -246,6 +260,7 @@ namespace Nabil.Controllers
 
         //
         // GET: /Manage/SetPassword
+        [Authorize(Roles = "Admin, Manager, Pracownik")]
         public ActionResult SetPassword()
         {
             return View();
@@ -255,6 +270,7 @@ namespace Nabil.Controllers
         // POST: /Manage/SetPassword
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Manager, Pracownik")]
         public async Task<ActionResult> SetPassword(SetPasswordViewModel model)
         {
             if (ModelState.IsValid)
@@ -333,7 +349,44 @@ namespace Nabil.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        [Authorize(Roles = "Admin, Manager, Pracownik")]
+        public ActionResult Edit(string id)
+        {
+            ApplicationUser appUser = new ApplicationUser();
+            appUser = _context.Users.Find(id);
+            UserEditViewModel user = new UserEditViewModel(appUser)
+            {
+                ApplicationUser = appUser
+            };
+
+            return View(user);
+        }
+
+        [Authorize(Roles = "Admin, Manager, Pracownik")]
+        [HttpPost, ActionName("Edit")]
+        public async Task<ActionResult> EditConfirmed(ApplicationUser user)
+        {
+
+
+            if (!ModelState.IsValid)
+            {
+                return View(user);
+            }
+            var store = new UserStore<ApplicationUser>(new ApplicationDbContext());
+            var manager = new UserManager<ApplicationUser>(store);
+            var currentUser = _context.Users.Find(user.Id);
+            currentUser.FirstName = user.FirstName;
+            currentUser.LastName = user.LastName;
+            currentUser.PhoneNumber = user.PhoneNumber;
+            currentUser.UserName = user.UserName;
+            _context.SaveChanges();
+            TempData["msg"] = "Profile Changes Saved !";
+            return RedirectToAction("Index", "Manage");
+
+        }
+
+
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 

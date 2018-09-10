@@ -1,100 +1,32 @@
 ﻿@model Nabil.Models.Dish
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Szczegóły";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Szczegóły</h2>
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+<img src='@Url.Content("~/Content/Images/Dishes/" + Model.ImgUrl.ToString())' id="danie_imgA" />
+<p class="opis_daniaA">@Html.DisplayFor(model => model.Description) </br></br>
 
-<div>
-    <h4>Danie:</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Weight)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Weight)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Kcal)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Kcal)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.GluteFree)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GluteFree)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DishType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DishType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        @if (Model.WeightSmall.HasValue)
-        { 
-        <dt>
-            @Html.DisplayNameFor(model => model.WeightSmall)
-        </dt>
-            <dd>
-                @Html.DisplayFor(model => model.WeightSmall)
-            </dd>
-        }
-        @if (Model.WeightSmall.HasValue)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.PriceSmall)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.PriceSmall)
-            </dd>
-        }
-       
-        @if (Model.ImgUrl != null)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.ImgUrl)
-            </dt>
-
-            <dd>
-                <img src='@Url.Content("~/Content/Images/Dishes/" + Model.ImgUrl.ToString())' />
-            </dd>
-        }
+    <div class="waga_cenaA">
+        @Html.DisplayFor(model => model.Weight) g - @Html.DisplayFor(model => model.Price) zł
+        / @if (Model.WeightSmall.HasValue) 
+          {
+          
+              @Html.DisplayFor(model => model.PriceSmall)
+          } g - @if (Model.WeightSmall.HasValue)
+                {
+        <span>@Html.DisplayFor(model => model.WeightSmall) zł</span>
+                    
+                }  
+    </div>
+</p>
 
 
-    </dl>
+</br><div class="składnikiA"><h3>Składniki:</h3>
+    ojoijiijji
+    
 </div>
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
