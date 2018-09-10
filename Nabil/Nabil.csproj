@@ -264,12 +264,17 @@
     <Compile Include="Migrations\201809062013562_UpdateDishModel9.Designer.cs">
       <DependentUpon>201809062013562_UpdateDishModel9.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809101832548_AddRecipesIntoDB.cs" />
+    <Compile Include="Migrations\201809101832548_AddRecipesIntoDB.Designer.cs">
+      <DependentUpon>201809101832548_AddRecipesIntoDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Dish.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Recipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\DishFormViewModel.cs" />
@@ -426,6 +431,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809062013562_UpdateDishModel9.resx">
       <DependentUpon>201809062013562_UpdateDishModel9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809101832548_AddRecipesIntoDB.resx">
+      <DependentUpon>201809101832548_AddRecipesIntoDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

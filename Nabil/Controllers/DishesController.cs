@@ -50,8 +50,8 @@ namespace Nabil.Controllers
         [Route("Menu/Nowe-danie")]
         public ActionResult New()
         {
-            
 
+            ViewBag.IngredientList = new MultiSelectList(_context.Ingredients, "Id", "Name");
             var viewModel = new DishFormViewModel
             {
                 FormType = "Nowe danie",
@@ -87,7 +87,7 @@ namespace Nabil.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin, Manager")]
-        public ActionResult Save(Dish dish, HttpPostedFileBase UploadImage)
+        public ActionResult Save(Dish dish, HttpPostedFileBase UploadImage, ICollection<int> SelectedIngredientList)
         {
 
             if (!ModelState.IsValid)
@@ -127,6 +127,17 @@ namespace Nabil.Controllers
             if (dish.Id == 0)
             {
                 _context.Dishes.Add(dish);
+
+                foreach (var ingredientId in SelectedIngredientList)
+                {
+                    var obj = new Recipe()
+                    {
+                        DishId = dish.Id,
+                        IngredientId = ingredientId
+                    };
+                    _context.Recipes.Add(obj);
+                }
+
                 
 
             }

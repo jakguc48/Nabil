@@ -21,6 +21,12 @@ namespace Nabil.ViewModels
         public Dictionary<string, string> DishTypeDictionary { get; set; }
 
 
+        public Ingredient Ingredient { get; set; }
+        public ICollection<int> SelectedIngredientList { get; set; }
+        public ICollection<Recipe> Recipes { get; set; }
+
+
+
         public int? Id { get; set; }
 
         [Required]

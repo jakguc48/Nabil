@@ -55,6 +55,16 @@
         @Html.ValidationMessageFor(c => c.Dish.WeightSmall)
 
         <br />
+        
+        
+        @Html.Label("Lista składników")
+        @Html.ListBoxFor(m => m.SelectedIngredientList, new MultiSelectList(ViewBag.IngredientList, "Value", "text"))
+        <br/>
+        <br/>
+        <br/>
+        
+        
+
 
         @if (Model.FormType.Equals("Nowe danie"))
         {
