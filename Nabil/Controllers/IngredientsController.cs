@@ -28,7 +28,15 @@ namespace Nabil.Controllers
         public ActionResult Index()
         {
             var ingredients = _context.Ingredients.ToList();
-            return View(ingredients);
+
+            if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+            {
+                return View("Index", ingredients);
+            }
+            else
+            {
+                return View("IndexReadOnly", ingredients);
+            }
         }
 
         [Route("Skladniki/{id:regex(\\d)}")]

@@ -1,28 +1,33 @@
-﻿@model Nabil.Models.Dish
+﻿@using Nabil.Models
+@model Nabil.ViewModels.DishDetailsViewModel
 
 @{
     ViewBag.Title = "Szczegóły";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Html.DisplayFor(model => model.Name)</h2>
-<img src='@Url.Content("~/Content/Images/Dishes/" + Model.ImgUrl.ToString())' id="danie_imgA" />
-<p class="opis_daniaA">@Html.DisplayFor(model => model.Description) </br></br>
+<h2>@Html.DisplayFor(model => model.Dish.Name)</h2>
+<img src='@Url.Content("~/Content/Images/Dishes/" + Model.Dish.ImgUrl.ToString())' id="danie_imgA" />
+<p class="opis_daniaA">@Html.DisplayFor(model => model.Dish.Description) </br></br>
 
     <div class="waga_cenaA">
-        @Html.DisplayFor(model => model.Weight) g - @Html.DisplayFor(model => model.Price) zł
-        / @if (Model.WeightSmall.HasValue) 
+        @Html.DisplayFor(model => model.Dish.Weight) g - @Html.DisplayFor(model => model.Dish.Price) zł
+        / @if (Model.Dish.WeightSmall.HasValue) 
           {
           
-              @Html.DisplayFor(model => model.PriceSmall)
-          } g - @if (Model.WeightSmall.HasValue)
+              @Html.DisplayFor(model => model.Dish.PriceSmall)
+          } g - @if (Model.Dish.WeightSmall.HasValue)
                 {
-        <span>@Html.DisplayFor(model => model.WeightSmall) zł</span>
+        <span>@Html.DisplayFor(model => model.Dish.WeightSmall) zł</span>
                     
                 }  
     </div>
 </p>
 
+@foreach(Ingredient i in Model.Ingredients)
+    {
+        <p>@i.Name</p>
+    }
 
 </br><div class="składnikiA"><h3>Składniki:</h3>
     ojoijiijji

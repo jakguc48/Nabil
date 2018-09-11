@@ -58,7 +58,7 @@
         
         
         @Html.Label("Lista składników")
-        @Html.ListBoxFor(m => m.SelectedIngredientList, new MultiSelectList(ViewBag.IngredientList, "Value", "text"))
+        @Html.ListBoxFor(m => m.SelectedIngredientList, new MultiSelectList(ViewBag.IngredientList, "Value", "text"), new { @class = "form-control" })
         <br/>
         <br/>
         <br/>

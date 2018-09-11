@@ -1,0 +1,39 @@
+﻿@using Nabil.Models
+@model IEnumerable<Nabil.Models.Ingredient>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Składniki</h2>
+
+@if (!Model.Any())
+{
+    <p>Nie dodano jeszcze żadnych składników</p>
+}
+
+else
+{
+    <table class="tab1A">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nazwa</th>
+                <th>Nazwa zdjęcia</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ingredient in Model)
+            {
+                <tr>
+                    <td> @ingredient.Id</td>
+                    <td>@Html.ActionLink(ingredient.Name, "Details", "Ingredients", new { id = ingredient.Id }, null)</td>
+                    <td>@ingredient.ImgUrl</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<br />

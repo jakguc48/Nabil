@@ -21,6 +21,7 @@ else
         <tr>
             <th>ID</th>
             <th>Nazwa</th>
+            <th>Nazwa zdjęcia</th>
             <th>Zmień nazwę</th>
             <th>Zmień zdjęcie</th>
             <th>Usuń</th>
@@ -32,6 +33,7 @@ else
             <tr>
                 <td> @ingredient.Id</td>
                 <td>@Html.ActionLink(ingredient.Name, "Details", "Ingredients", new { id = ingredient.Id }, null)</td>
+                <td>@ingredient.ImgUrl</td>
                 <td>@Html.ActionLink("Edytuj", "Edit", "Ingredients", new { id = ingredient.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
                 <td>@Html.ActionLink("Zmień zdjęcie", "ChangePhoto", "Ingredients", new { id = ingredient.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
                 <td>@Html.ActionLink("Usuń", "Delete", "Ingredients", new { id = ingredient.Id, @type = "submit", @class = "btn btn-primary" }, null)</td>
@@ -41,4 +43,4 @@ else
     </table>
 }
 <br />
-<button onclick="location.href = '@Url.Action("New", "Ingredients")';" , class="btn btn-primary">Dodaj danie</button>
+<button onclick="location.href = '@Url.Action("New", "Ingredients")';" , class="btn btn-primary">Dodaj składnik</button>

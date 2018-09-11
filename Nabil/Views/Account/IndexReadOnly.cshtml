@@ -1,0 +1,63 @@
+﻿@model Nabil.ViewModels.GroupedUserViewModel
+
+@{
+    ViewBag.Title = "Pracownicy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pracownicy</h2>
+
+
+<br />
+
+<table class="tab1A">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Nazwa użytkownika</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Telefon</th>
+            <th>Funkcja</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var manager in Model.Managers)
+        {
+            <tr>
+                <td>@manager.Email</td>
+                <td>@manager.Username</td>
+                <td>@manager.FirstName</td>
+                <td>@manager.LastName</td>
+                <td>@manager.Phone</td>
+                <td>@manager.RoleName</td>
+            </tr>
+        }
+
+        @foreach (var employee in Model.Employees)
+        {
+            <tr>
+                <td>@employee.Email</td>
+                <td>@employee.Username</td>
+                <td>@employee.FirstName</td>
+                <td>@employee.LastName</td>
+                <td>@employee.Phone</td>
+                <td>@employee.RoleName</td>
+            </tr>
+        }
+
+        @foreach (var admin in Model.Admins)
+        {
+            <tr>
+
+                <td>@admin.Email</td>
+                <td>@admin.Username</td>
+                <td>@admin.FirstName</td>
+                <td>@admin.LastName</td>
+                <td>@admin.Phone</td>
+                <td>@admin.RoleName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />

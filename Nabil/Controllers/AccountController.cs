@@ -487,6 +487,17 @@ namespace Nabil.Controllers
 
 
             var model = new GroupedUserViewModel { Employees = employeeVM, Admins = adminVM, Managers = managerVM};
+
+            if (User.IsInRole("Admin"))
+            {
+                return View("Index", model);
+            }
+            else
+            {
+                return View("IndexReadOnly", model);
+            }
+
+
             return View(model);
 
         }

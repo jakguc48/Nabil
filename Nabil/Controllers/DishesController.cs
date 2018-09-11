@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Ajax.Utilities;
+using Nabil.Migrations;
 using Nabil.Models;
 using Nabil.ViewModels;
 
@@ -31,7 +33,14 @@ namespace Nabil.Controllers
         public ActionResult Index()
         {
             var dish = _context.Dishes.ToList();
-            return View(dish);
+            if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+            {
+                return View("Index", dish);
+            }
+            else
+            {
+                return View("IndexReadOnly", dish);
+            }
         }
 
 
@@ -39,11 +48,32 @@ namespace Nabil.Controllers
         public ActionResult Details(int id)
         {
             var dish = _context.Dishes.SingleOrDefault(c => c.Id == id);
+            List<Recipe> recipes = (from r in _context.Recipes where r.DishId.Equals(id) select r).ToList();
+
+            List<Ingredient> ingr = new List<Ingredient>();
+          
+            Recipe rr = new Recipe();
+            for (int i = 0; i < recipes.Count; i++)
+            {
+                rr = recipes[i];
+                ingr.Add(_context.Ingredients.SingleOrDefault(m => m.Id == rr.IngredientId));
+            }
+
+
+            var viewModel = new DishDetailsViewModel
+            {
+                Dish = dish,
+                Ingredients = ingr
+            };
+
+
+
             if (dish == null)
             {
                 return HttpNotFound();
             }
-            return View(dish);
+
+            return View("Details", viewModel);
         }
 
         [Authorize(Roles = "Admin, Manager")]
@@ -69,6 +99,7 @@ namespace Nabil.Controllers
         [Route("Menu/Edytuj-danie/{id:regex(\\d)}")]
         public ActionResult Edit(int id)
         {
+            ViewBag.IngredientList = new MultiSelectList(_context.Ingredients, "Id", "Name");
             var dish = _context.Dishes.SingleOrDefault(c => c.Id == id);
             if (dish == null)
             {
@@ -143,6 +174,33 @@ namespace Nabil.Controllers
             }
             else
             {
+
+
+                
+
+                if ((SelectedIngredientList != null) )
+                {
+
+                    List<Recipe> recipes = (from r in _context.Recipes where r.DishId.Equals(dish.Id) select r).ToList();
+
+                    foreach (var rec in recipes)
+                    {
+                        _context.Recipes.Remove(rec);
+                    }
+
+
+
+                    foreach (var ingredientId in SelectedIngredientList)
+                    {
+                        var obj = new Recipe()
+                        {
+                            DishId = dish.Id,
+                            IngredientId = ingredientId
+                        };
+                        _context.Recipes.Add(obj);
+                    }
+                }
+
                 var dishInDb = _context.Dishes.Single(c => c.Id == dish.Id);
 
 

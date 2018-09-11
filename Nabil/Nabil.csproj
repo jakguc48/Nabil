@@ -277,6 +277,7 @@
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\DishDetailsViewModel.cs" />
     <Compile Include="ViewModels\DishFormViewModel.cs" />
     <Compile Include="ViewModels\IngredientFormViewModel.cs" />
     <Compile Include="ViewModels\UserEditViewModel.cs" />
@@ -377,6 +378,9 @@
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\ChangeRole.cshtml" />
     <Content Include="Views\Manage\Edit.cshtml" />
+    <Content Include="Views\Dishes\IndexReadOnly.cshtml" />
+    <Content Include="Views\Ingredients\IndexReadOnly.cshtml" />
+    <Content Include="Views\Account\IndexReadOnly.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Dishes\" />

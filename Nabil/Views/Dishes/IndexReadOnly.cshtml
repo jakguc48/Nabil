@@ -32,11 +32,6 @@ else
                         <div class="textA">@Html.ActionLink(dish.Name, "Details", "Dishes", new { id = dish.Id }, null)</div>
                     </div>
                     <br />
-                    @Html.ActionLink("Edytuj", "Edit", "Dishes", new { id = dish.Id, @type = "submit", @class = "btn btn-primary" }, null)
-                    &emsp;
-                    @Html.ActionLink("Zmień zdjęcie", "ChangePhoto", "Dishes", new { id = dish.Id, @type = "submit", @class = "btn btn-primary" }, null)
-                    &emsp;
-                    @Html.ActionLink("Usuń danie", "Delete", "Dishes", new { id = dish.Id, @type = "submit", @class = "btn btn-primary" }, null)
                 </div>
 
             }
@@ -46,8 +41,6 @@ else
     </center>
 
 }
-
-<button onclick="location.href = '@Url.Action("New", "Dishes")';" , class="btn btn-primary">Dodaj danie</button>
 <br />
 
 
