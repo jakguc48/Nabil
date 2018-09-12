@@ -6,7 +6,7 @@
 
 <h2>Zmiana Funkcji</h2>
 
-@using (Html.BeginForm("ChangeRole", "Account", FormMethod.Post, new { id = Model.Id}))
+@using (Html.BeginForm("ChangeRole", "Account", FormMethod.Post, new { id = Model.Id }))
 {
 
     <div class="form-group">
@@ -30,7 +30,7 @@
     @Html.AntiForgeryToken()
 }
 
-
+@Html.ActionLink("Powrót do listy", "Index")
 
 @section scripts
 {

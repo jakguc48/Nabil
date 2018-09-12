@@ -19,6 +19,12 @@ namespace Nabil.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        #region AccountController Head
+
+
+
+        
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private ApplicationDbContext _context;
@@ -57,6 +63,14 @@ namespace Nabil.Controllers
                 _userManager = value;
             }
         }
+
+        #endregion
+
+        #region AccountController Defaults
+
+
+
+        
 
         //
         // GET: /Account/Login
@@ -142,11 +156,10 @@ namespace Nabil.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = RoleNames.Admin)]
         public ActionResult Register()
         {
-            ViewBag.Name = new SelectList(_context.Roles.Where(u => !u.Name.Contains("Admin"))
+            ViewBag.Name = new SelectList(_context.Roles.Where(u => !u.Name.Contains(RoleNames.Admin))
                 .ToList(), "Name", "Name");
             return View();
         }
@@ -154,9 +167,8 @@ namespace Nabil.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = RoleNames.Admin)]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -178,7 +190,7 @@ namespace Nabil.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
-                ViewBag.Name = new SelectList(_context.Roles.Where(u => !u.Name.Contains("Admin"))
+                ViewBag.Name = new SelectList(_context.Roles.Where(u => !u.Name.Contains(RoleNames.Admin))
                     .ToList(), "Name", "Name");
 
                 AddErrors(result);
@@ -439,10 +451,20 @@ namespace Nabil.Controllers
             base.Dispose(disposing);
         }
 
-        [Authorize(Roles = "Admin, Manager, Pracownik")]
+
+
+        #endregion
+
+        #region AccountController Added
+
+
+
+        
+
+        [Authorize(Roles = RoleNames.AllUsers)]
         public ActionResult Index()
         {
-            var role = (from r in _context.Roles where r.Name.Contains("Pracownik") select r).FirstOrDefault();
+            var role = (from r in _context.Roles where r.Name.Contains(RoleNames.Pracownik) select r).FirstOrDefault();
             var users = _context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(role.Id)).ToList();
 
             var employeeVM = users.Select(user => new UserViewModel
@@ -453,11 +475,11 @@ namespace Nabil.Controllers
                 LastName = user.LastName,
                 Email = user.Email,
                 Phone = user.PhoneNumber,
-                RoleName = "Pracownik"
+                RoleName = RoleNames.Pracownik
             }).ToList();
 
 
-            var role2 = (from r in _context.Roles where r.Name.Contains("Admin") select r).FirstOrDefault();
+            var role2 = (from r in _context.Roles where r.Name.Contains(RoleNames.Admin) select r).FirstOrDefault();
             var admins = _context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(role2.Id)).ToList();
 
             var adminVM = admins.Select(user => new UserViewModel
@@ -468,10 +490,10 @@ namespace Nabil.Controllers
                 LastName = user.LastName,
                 Email = user.Email,
                 Phone = user.PhoneNumber,
-                RoleName = "Admin"
+                RoleName = RoleNames.Admin
             }).ToList();
 
-            var role3 = (from r in _context.Roles where r.Name.Contains("Manager") select r).FirstOrDefault();
+            var role3 = (from r in _context.Roles where r.Name.Contains(RoleNames.Manager) select r).FirstOrDefault();
             var managers = _context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(role3.Id)).ToList();
 
             var managerVM = managers.Select(user => new UserViewModel
@@ -482,13 +504,13 @@ namespace Nabil.Controllers
                 LastName = user.LastName,
                 Email = user.Email,
                 Phone = user.PhoneNumber,
-                RoleName = "Manager"
+                RoleName = RoleNames.Manager
             }).ToList();
 
 
             var model = new GroupedUserViewModel { Employees = employeeVM, Admins = adminVM, Managers = managerVM};
 
-            if (User.IsInRole("Admin"))
+            if (User.IsInRole(RoleNames.Admin))
             {
                 return View("Index", model);
             }
@@ -496,18 +518,11 @@ namespace Nabil.Controllers
             {
                 return View("IndexReadOnly", model);
             }
-
-
             return View(model);
 
         }
-
-
-
-
-
-
-        [Authorize(Roles = "Admin")]
+        
+        [Authorize(Roles = RoleNames.Admin)]
         public ActionResult Edit(string id)
         {
             ApplicationUser appUser = new ApplicationUser();
@@ -522,7 +537,7 @@ namespace Nabil.Controllers
 
 
         [HttpPost, ActionName("Edit")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = RoleNames.Admin)]
         public async Task<ActionResult> EditConfirmed(ApplicationUser user)
         {
             if (!ModelState.IsValid)
@@ -543,7 +558,7 @@ namespace Nabil.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = RoleNames.Admin)]
         public ActionResult ChangeRole(string id)
         {
             ApplicationUser appUser = new ApplicationUser();
@@ -552,16 +567,17 @@ namespace Nabil.Controllers
             {
                 ApplicationUser = appUser
             };
-            ViewBag.Name = new SelectList(_context.Roles.Where(u => !u.Name.Contains("Admin"))
+            ViewBag.Name = new SelectList(_context.Roles.Where(u => !u.Name.Contains(RoleNames.Admin))
                 .ToList(), "Name", "Name");
 
             return View(user);
         }
 
 
-        [ValidateAntiForgeryToken]
+        
         [HttpPost, ActionName("ChangeRole")]
-        [Authorize(Roles = "Admin")]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleNames.Admin)]
         public async Task<ActionResult> ChangeRoleConfirmed(ApplicationUser user, string UserRole)
         {
             
@@ -581,7 +597,7 @@ namespace Nabil.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = RoleNames.Admin)]
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -597,7 +613,7 @@ namespace Nabil.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = RoleNames.Admin)]
         public async Task<ActionResult> DeleteConfirmed(string id)
         {
             var user = await UserManager.FindByIdAsync(id);
@@ -614,8 +630,8 @@ namespace Nabil.Controllers
                 return RedirectToAction("Index");
             }
         }
-        
-        
+        #endregion
+
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";

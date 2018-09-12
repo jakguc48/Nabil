@@ -9,8 +9,14 @@ using Nabil.ViewModels;
 
 namespace Nabil.Controllers
 {
+
     public class IngredientsController : Controller
     {
+        #region IngredientsController Head
+
+
+
+        
         private ApplicationDbContext _context;
 
         public IngredientsController()
@@ -23,13 +29,20 @@ namespace Nabil.Controllers
             _context.Dispose();
         }
 
+        #endregion
+
+        #region IngredientsController Added
+
+
+
+        
         [Route("Skladniki")]
-        [Authorize(Roles = "Admin, Manager, Pracownik")]
+        [Authorize(Roles = RoleNames.AllUsers)]
         public ActionResult Index()
         {
             var ingredients = _context.Ingredients.ToList();
 
-            if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+            if (User.IsInRole(RoleNames.Admin) || User.IsInRole(RoleNames.Manager))
             {
                 return View("Index", ingredients);
             }
@@ -40,7 +53,7 @@ namespace Nabil.Controllers
         }
 
         [Route("Skladniki/{id:regex(\\d)}")]
-        [Authorize(Roles = "Admin, Manager, Pracownik")]
+        [Authorize(Roles = RoleNames.AllUsers)]
         public ActionResult Details(int id)
         {
             var ingredient = _context.Ingredients.SingleOrDefault(c => c.Id == id);
@@ -52,11 +65,9 @@ namespace Nabil.Controllers
         }
 
         [Route("Skladniki/Nowy-skladnik")]
-        [Authorize(Roles = "Admin, Manager")]
+        [Authorize(Roles = RoleNames.AdminOrManager)]
         public ActionResult New()
         {
-
-
             var viewModel = new IngredientFormViewModel
             {
                 FormType = "Nowy skladnik",
@@ -69,7 +80,7 @@ namespace Nabil.Controllers
 
 
         [Route("Skladniki/edytuj-skladnik/{id:regex(\\d)}")]
-        [Authorize(Roles = "Admin, Manager")]
+        [Authorize(Roles = RoleNames.AdminOrManager)]
         public ActionResult Edit(int id)
         {
             var ingredient = _context.Ingredients.SingleOrDefault(c => c.Id == id);
@@ -89,7 +100,7 @@ namespace Nabil.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin, Manager")]
+        [Authorize(Roles = RoleNames.AdminOrManager)]
         public ActionResult Save(Ingredient ingredient, HttpPostedFileBase UploadImage)
         {
 
@@ -150,7 +161,7 @@ namespace Nabil.Controllers
 
 
         [Route("Skladniki/Zmiana-zdjecia/{id:regex(\\d)}")]
-        [Authorize(Roles = "Admin, Manager")]
+        [Authorize(Roles = RoleNames.AdminOrManager)]
         public ActionResult ChangePhoto(int id)
         {
             var ingredient = _context.Ingredients.SingleOrDefault(c => c.Id == id);
@@ -171,7 +182,7 @@ namespace Nabil.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin, Manager")]
+        [Authorize(Roles = RoleNames.AdminOrManager)]
         public ActionResult SavePhoto(Ingredient ingredient, HttpPostedFileBase UploadImage)
         {
 
@@ -204,7 +215,7 @@ namespace Nabil.Controllers
 
         }
 
-        [Authorize(Roles = "Admin, Manager")]
+        [Authorize(Roles = RoleNames.AdminOrManager)]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -221,7 +232,8 @@ namespace Nabil.Controllers
 
 
         [HttpPost, ActionName("Delete")]
-        [Authorize(Roles = "Admin, Manager")]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleNames.AdminOrManager)]
         public ActionResult DeleteConfirmed(int id)
         {
             Ingredient ingredient = _context.Ingredients.Find(id);
@@ -229,7 +241,7 @@ namespace Nabil.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        #endregion
 
 
 

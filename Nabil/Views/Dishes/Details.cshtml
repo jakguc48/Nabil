@@ -27,6 +27,7 @@
 @foreach(Ingredient i in Model.Ingredients)
     {
         <p>@i.Name</p>
+        <img src='@Url.Content("~/Content/Images/Ingredients/"+ i.ImgUrl)' height="200" class="danie_imgA" />
     }
 
 </br><div class="składnikiA"><h3>Składniki:</h3>
