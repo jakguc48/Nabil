@@ -18,7 +18,7 @@ html {
 }
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     margin: 0;
 }
@@ -53,10 +53,12 @@ summary {
 }
 
 header {
-    background: url(Images/naglowek5.png);
-    background-repeat: repeat;
+    background: url(Images/nabil_header.png), url(Images/header6.png);
+    background-repeat: no-repeat,no-repeat;
     background-attachment: fixed;
-    height: 250px;
+    background-position: 50% 160PX, 50% 45%;
+    background-size: auto, cover;
+    height: 420px;
 }
 
 a {
@@ -84,19 +86,19 @@ footer {
 
 .footer-containerA {
     margin: auto;
-    width: 1000px;
+    max-width: 1000px;
 }
 
     .footer-containerA #footer-leftA {
         margin-top: 20px;
         float: left;
-        width: 500px;
+        max-width: 500px;
     }
 
     .footer-containerA #footer-rightA {
         margin-top: 20px;
         float: right;
-        width: 500px;
+        max-width: 500px;
     }
 
 footer a {
@@ -171,7 +173,7 @@ table {
 
 .navbar-nav > li > a,
 .navbar-nav > li > a:hover {
-    font-family: Lato;
+    font-family: Roboto;
     -webkit-transition: color ease-in-out 0.2s;
     -o-transition: color ease-in-out 0.2s;
     transition: color ease-in-out 0.2s;
@@ -421,25 +423,18 @@ table {
 }
 
 .przyciskiA {
-    text-align: center;
     text-transform: uppercase;
     transition: 2s;
     font-size: 30px;
+    padding: 5px 10px;
+    border: 3px solid #000000;
+    transition: .4s ease;
 }
 
-    .przyciskiA a {
-        padding: 5px;
-        border: 3px solid #000000;
-        margin-right: 5px;
-        transition: .4s ease;
+    .przyciskiA:hover {
+        background-color: #000000;
+        color: #FFFFFF;
     }
-
-        .przyciskiA a:hover {
-            background-color: #000000;
-            color: #FFFFFF;
-            padding: 5px;
-            margin-right: 5px;
-        }
 
 #daniaA {
     max-width: 691px;
@@ -498,52 +493,6 @@ table {
             color: #428a42;
         }
 
-#napoje_tytu³ A {
-    clear: both;
-}
-
-.napoje-nazwyA {
-    text-align: right;
-    margin-right: 5px;
-    color: #000000;
-    width: 90px;
-    height: 40px;
-    font-weight: bold;
-}
-
-.napoje-cenyA {
-    background-color: #000000;
-    color: #FFFFFF;
-    width: 40px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.napoje-nazwyB {
-    background-color: #000000;
-    text-align: center;
-    color: #ffffff;
-    width: 90px;
-    height: 40px;
-    font-weight: bold;
-    border: 3px solid #000000;
-}
-
-.napoje-cenyB {
-    text-align: center;
-    color: #000000;
-    width: 90px;
-    height: 40px;
-    font-weight: bold;
-}
-
-#danie_imgA {
-    width: 450px;
-    height: auto;
-    float: left;
-    margin-right: 40px;
-    margin-bottom: 40px;
-}
 
 #o_nas_imgA {
     float: right;
@@ -551,12 +500,60 @@ table {
     margin-left: 40px;
 }
 
-.waga_cenaA {
+#opis_containerA {
+    position: relative;
+    clear: both;
+    max-height: 670px;
+    margin-bottom: 20px;
+    width: 100%;
+    float: left;
+
+}
+
+#sk³adnikiA {
+    position: absolute;
+    clear: both;
+}
+
+#sk³adniki_tytu³A {
+    clear: both;
+}
+
+.sk³adnik_imgA {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+
+#danie_imgA {
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    width: 50%;
+    height: auto;
+}
+
+.opis_daniaA {
+    float: left;
+    width: 40%;
+    background-color: #4de061;
+    padding: 70px;
+    text-align: justify;
+    line-height: 35px;
+}
+
+
+#waga_cenaA {
+    clear: both;
+    float: none;
+    border: 3px solid #000000;
+    padding: 5px 10px;
     text-align: center;
 }
 
-.sk³adnikiA {
+#sk³adnikiA {
     clear: both;
+    border: 3px solid #000000;
     float: none;
     text-align: center;
 }
@@ -1933,13 +1930,6 @@ html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-body {
-    font-family: 'Lato', sans-serif;
-    font-size: 18px;
-    line-height: 1.42857143;
-    color: #000000;
-    background-color: #ffffff;
-}
 
 input,
 button,
@@ -7607,7 +7597,7 @@ button.close {
     position: absolute;
     z-index: 1070;
     display: block;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: normal;
     letter-spacing: normal;

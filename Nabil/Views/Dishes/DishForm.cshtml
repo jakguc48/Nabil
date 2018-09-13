@@ -25,9 +25,9 @@
         @Html.TextBoxFor(m => m.Kcal, new { @class = "form-control" })
         @Html.ValidationMessageFor(c => c.Dish.Kcal)
 
-        @Html.LabelFor(m => m.Weight)
-        @Html.TextBoxFor(m => m.Weight, new { @class = "form-control" })
-        @Html.ValidationMessageFor(c => c.Dish.Weight)
+        @Html.LabelFor(m => m.Size1)
+        @Html.TextBoxFor(m => m.Size1, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Dish.Size1)
 
         @Html.LabelFor(m => m.Price)
         @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
@@ -46,13 +46,14 @@
         @Html.ValidationMessageFor(c => c.Dish.Description)
 
         <h4>Opcjonalnie:</h4>
+        @Html.LabelFor(m => m.Size2)
+        @Html.TextBoxFor(m => m.Size2, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Dish.Size2)
+
         @Html.LabelFor(m => m.PriceSmall)
         @Html.TextBoxFor(m => m.PriceSmall, new { @class = "form-control" })
         @Html.ValidationMessageFor(c => c.Dish.PriceSmall)
 
-        @Html.LabelFor(m => m.WeightSmall)
-        @Html.TextBoxFor(m => m.WeightSmall, new { @class = "form-control" })
-        @Html.ValidationMessageFor(c => c.Dish.WeightSmall)
 
         <br />
         

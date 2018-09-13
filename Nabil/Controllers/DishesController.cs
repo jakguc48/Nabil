@@ -203,11 +203,11 @@ namespace Nabil.Controllers
 
                 dishInDb.Name = dish.Name;
                 dishInDb.Kcal = dish.Kcal;
-                dishInDb.Weight = dish.Weight;
+                dishInDb.Size1 = dish.Size1;
                 dishInDb.GluteFree = dish.GluteFree;
                 dishInDb.Price = dish.Price;
                 dishInDb.DishType = dish.DishType;
-                dishInDb.WeightSmall = dish.WeightSmall;
+                dishInDb.Size2 = dish.Size2;
                 dishInDb.PriceSmall = dish.PriceSmall;
                 dishInDb.Description = dish.Description;
             }

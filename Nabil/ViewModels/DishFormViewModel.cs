@@ -34,8 +34,8 @@ namespace Nabil.ViewModels
         [Display(Name = "Nazwa dania")]
         public string Name { get; set; }
 
-        [Display(Name = "Waga Dania")]
-        public short Weight { get; set; }
+        [Display(Name = "Rozmiar dania: główny")]
+        public string Size1 { get; set; }
 
         [Display(Name = "Kaloryczność/100g")]
         public short Kcal { get; set; }
@@ -56,8 +56,8 @@ namespace Nabil.ViewModels
         [Display(Name = "Opis")]
         public string Description { get; set; }
 
-        [Display(Name = "Waga dania - mała porcja")]
-        public short? WeightSmall { get; set; }
+        [Display(Name = "Rozmiar dania: dodatkowy")]
+        public string Size2 { get; set; }
 
         [Display(Name = "Cena dania - mała porcja")]
         public double? PriceSmall { get; set; }
@@ -91,14 +91,14 @@ namespace Nabil.ViewModels
 
             Name = dish.Name;
             Id = dish.Id;
-            Weight = dish.Weight;
+            Size1 = dish.Size1;
             Kcal = dish.Kcal;
             GluteFree = dish.GluteFree;
             ImgUrl = dish.ImgUrl;
             Price = dish.Price;
             DishType = dish.DishType;
             Description = dish.Description;
-            WeightSmall = dish.WeightSmall;
+            Size2 = dish.Size2;
             PriceSmall = dish.PriceSmall;
         }
 

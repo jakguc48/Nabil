@@ -268,6 +268,10 @@
     <Compile Include="Migrations\201809101832548_AddRecipesIntoDB.Designer.cs">
       <DependentUpon>201809101832548_AddRecipesIntoDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809121714227_UpdateDishModel10.cs" />
+    <Compile Include="Migrations\201809121714227_UpdateDishModel10.Designer.cs">
+      <DependentUpon>201809121714227_UpdateDishModel10.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Dish.cs" />
@@ -439,6 +443,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809101832548_AddRecipesIntoDB.resx">
       <DependentUpon>201809101832548_AddRecipesIntoDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809121714227_UpdateDishModel10.resx">
+      <DependentUpon>201809121714227_UpdateDishModel10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
