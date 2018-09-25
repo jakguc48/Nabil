@@ -27,7 +27,7 @@ body {
     padding-top: 20px;
     padding-left: 50px;
     padding-right: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 70px;
 }
 
 .container-fluid {
@@ -53,7 +53,7 @@ summary {
 }
 
 header {
-    background: url(Images/nabil_header.png), url(Images/header6.png);
+    background: url(Images/nabil_header3.png), url(Images/header6.png);
     background-repeat: no-repeat,no-repeat;
     background-attachment: fixed;
     background-position: 50% 160PX, 50% 45%;
@@ -80,7 +80,7 @@ a {
 footer {
     background: #428a42;
     font-size: 15px;
-    height: 100px;
+    height: 150px;
     color: white;
 }
 
@@ -105,6 +105,14 @@ footer a {
     color: white;
 }
 
+    footer a:hover {
+        color: black;
+    }
+
+    footer a:visited {
+        color: black;
+    }
+
 .loginA {
     text-align: right;
 }
@@ -119,15 +127,11 @@ footer a {
 
 table {
     border-spacing: 4px;
-    
 }
 
     table.tab1A {
         border: 1px solid black;
-        border-collapse: separate;
         background: #e4e4e4;
-        border-radius: 1em;
-        overflow: hidden;
     }
 
         table.tab1A td {
@@ -138,16 +142,14 @@ table {
         }
 
         table.tab1A thead th {
-            border-top: 1px solid black;
+            border: 1px solid black;
             background: #c1e2b3;
             padding: 2px;
             margin: 2px;
         }
 
-.afds {
-    visibility: hidden;
-}
 .navbar {
+    font-family: 'Roboto', sans-serif;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe4e4e4', GradientType=0);
     -webkit-filter: none;
     filter: none;
@@ -299,18 +301,22 @@ table {
     }
 
 .nav {
+    font-family: 'Roboto', sans-serif;
     text-align: center;
-    padding-left: 25%;
+    max-width: 740px;
+    padding-left: 28%;
     margin-bottom: 0;
     list-style: none;
 }
 
     .nav > li {
+        font-family: 'Roboto', sans-serif;
         position: relative;
         display: block;
     }
 
         .nav > li > a {
+            font-family: 'Roboto', sans-serif;
             position: relative;
             display: block;
             padding: 10px 15px;
@@ -318,6 +324,7 @@ table {
 
             .nav > li > a:hover,
             .nav > li > a:focus {
+                font-family: 'Roboto', sans-serif;
                 text-decoration: none;
                 background-color: #eeeeee;
             }
@@ -435,15 +442,11 @@ table {
     font-size: 30px;
     padding: 5px 10px;
     border: 3px solid #000000;
-    transition: .4s ease;
 }
 
-    .przyciskiA:hover {
-        background-color: #000000;
-        color: #FFFFFF;
-    }
 
 #daniaA {
+    margin-top: 40px;
     max-width: 691px;
     display: inline-block;
 }
@@ -456,6 +459,7 @@ table {
 }
 
 .containerA {
+    line-height: 35px;
     margin-bottom: 20px;
     margin-right: 30px;
     overflow: hidden;
@@ -471,6 +475,7 @@ table {
     bottom: 0;
     left: 0;
     right: 0;
+    margin-bottom: 10px;
     height: 200px;
     width: 200px;
     opacity: 0;
@@ -500,35 +505,88 @@ table {
             color: #428a42;
         }
 
-
-#o_nas_imgA {
-    float: right;
-    margin-bottom: 40px;
-    margin-left: 40px;
+.action_button2A a {
+    margin-top: 10px;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    background: #1cbc24;
+    text-shadow: 1px -1px #068002;
+    -moz-box-shadow: inset 0 0 10px #068002;
+    -webkit-box-shadow: inset 0 0 10px #068002;
+    box-shadow: inset 0 0 10px #068002;
+    transition: .4s ease;
 }
 
+    .action_button2A a:hover {
+        background: #068002;
+        -moz-box-shadow: inset 0 0 10px #035a00;
+        -webkit-box-shadow: inset 0 0 10px #035a00;
+        box-shadow: inset 0 0 10px #035a00;
+        text-shadow: 1px -1px #0c4e0a;
+    }
+
+.o_nasA {
+    letter-spacing: 0px;
+    float: right;
+    text-align: center;
+    margin-left: 60px;
+    line-height: 33px;
+}
+
+#o_nas_imgA {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 70px;
+}
+
+#o_nas_mediaA {
+    width: 420px;
+    text-align: justify;
+    padding: 40px;
+    border: 3px solid #000000;
+}
+
+
+#o_nas_opisA {
+    text-align: justify;
+    line-height: 35px;
+    float: left;
+    width: 510px;
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+
 #opis_containerA {
-    position: relative;
     width: 100%;
     height: auto;
     margin-bottom: 40px;
     float: left;
 }
 
-#sk³adnikiA {
-    position: absolute;
-    clear: both;
-    text-align: center;
-}
 
 .containerB {
-    display: inline;
+    display: inline-block;
     overflow: hidden;
     float: left;
     position: relative;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    margin: 10px;
 }
 
-#sk³adniki_tytu³A {
+#skladniki_tytulA {
+    text-transform: uppercase;
+    transition: 2s;
+    font-size: 30px;
+    padding: 5px 10px;
+    border: 3px solid #000000;
+    transition: .4s ease;
 }
 
 
@@ -536,13 +594,13 @@ table {
     float: left;
     margin-right: 40px;
     margin-bottom: 40px;
-    width: 550px;
+    max-width: 550px;
     height: auto;
 }
 
 .opis_daniaA {
     float: right;
-    width: 460px;
+    max-width: 460px;
     background-color: #4de061;
     padding: 70px;
     text-align: justify;
@@ -558,15 +616,16 @@ table {
     text-align: center;
 }
 
-#sk³adnikiA {
+#skladnikiA {
     clear: both;
-    border: 3px solid #000000;
     float: none;
     text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-#powrót {
-    clear: left;
+#powrot {
+    clear: both;
 }
 
 #adresA {
@@ -583,8 +642,206 @@ table {
     float: right;
 }
 
-.tab1A th {
-    height: 50px;
+table.tab1A {
+    text-align: center;
+    font-size: 16px;
+    border: 0px;
+}
+
+    table.tab1A thead th {
+        vertical-align: middle;
+        border-left: 0px;
+        border-bottom: 0px;
+        border-right: 0px;
+        border-top: 3px solid #1cbc24;
+        text-align: center;
+        background-color: #4de061;
+        padding: 5px 30px;
+        color: black;
+        height: 50px;
+    }
+
+    table.tab1A td {
+        line-height: 35px;
+        vertical-align: middle;
+        padding: 10px;
+        border-left: 0px;
+        height: 70px;
+        border-bottom: 2px solid #ddd;
+        border-top: 0px;
+        border-right: 0px;
+        background: #FFFFFF;
+    }
+
+    table.tab1A .action_buttonA a {
+        border-radius: 10px;
+        color: #FFFFFF;
+        font-weight: bold;
+        font-size: 15px;
+        letter-spacing: 0px;
+        text-transform: uppercase;
+        vertical-align: middle;
+        border-left: 0px;
+        border-top: 0px;
+        border-right: 0px;
+        padding: 6px 10px;
+        background: #1cbc24;
+        text-shadow: 1px -1px #068002;
+        -moz-box-shadow: inset 0 0 10px #068002;
+        -webkit-box-shadow: inset 0 0 10px #068002;
+        box-shadow: inset 0 0 10px #068002;
+        transition: .4s ease;
+    }
+
+
+        table.tab1A .action_buttonA a:hover {
+            background: #068002;
+            -moz-box-shadow: inset 0 0 10px #035a00;
+            -webkit-box-shadow: inset 0 0 10px #035a00;
+            text-shadow: 1px -1px #0c4e0a;
+            box-shadow: inset 0 0 10px #035a00;
+        }
+
+
+    table.tab1A .ingredient_nameA a {
+        color: #000000;
+        font-weight: normal;
+        border-radius: 0px;
+        font-size: 16px;
+        text-transform: none;
+        padding: 0px;
+        background-color: #FFFFFF;
+        text-shadow: 0px 0px #068002;
+        -moz-box-shadow: inset 0 0 0px #068002;
+        -webkit-box-shadow: inset 0 0 0px #FFFFFF;
+        box-shadow: inset 0 0 0px #068002;
+    }
+
+
+
+table.tab2A {
+    text-align: center;
+    font-size: 16px;
+    border: 0px;
+}
+
+    table.tab2A th {
+        vertical-align: middle;
+        border-right: 0px;
+        border-bottom: 3px solid #1cbc24;
+        border-left: 3px solid #1cbc24;
+        border-top: 3px solid #1cbc24;
+        text-align: center;
+        background-color: #4de061;
+        padding: 5px 30px;
+        color: black;
+        height: 50px;
+    }
+
+    table.tab2A td {
+        line-height: 35px;
+        vertical-align: middle;
+        padding: 10px;
+        border-left: 0px;
+        height: 70px;
+        border-bottom: 3px solid #ddd;
+        border-top: 3px solid #ddd;
+        border-right: 3px solid #ddd;
+        background: #FFFFFF;
+    }
+
+    table.tab2A .action_buttonA a {
+        border-radius: 10px;
+        color: #FFFFFF;
+        font-weight: bold;
+        font-size: 15px;
+        letter-spacing: 0px;
+        text-transform: uppercase;
+        vertical-align: middle;
+        border-left: 0px;
+        border-top: 0px;
+        border-right: 0px;
+        padding: 6px 10px;
+        background: #1cbc24;
+        text-shadow: 1px -1px #068002;
+        -moz-box-shadow: inset 0 0 10px #068002;
+        -webkit-box-shadow: inset 0 0 10px #068002;
+        box-shadow: inset 0 0 10px #068002;
+        transition: .4s ease;
+    }
+
+
+        table.tab2A .action_buttonA a:hover {
+            background: #068002;
+            -moz-box-shadow: inset 0 0 10px #035a00;
+            -webkit-box-shadow: inset 0 0 10px #035a00;
+            text-shadow: 1px -1px #0c4e0a;
+            box-shadow: inset 0 0 10px #035a00;
+        }
+
+#startA {
+    background-color: #4de061;
+    margin-top: 32px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    position: relative;
+    width: calc(100vw - 9px);
+    position: relative;
+    margin-left: -50vw;
+    left: 50%;
+    display: inline-block;
+}
+
+#start_tekstA {
+    text-align: justify;
+    margin-left: 15%;
+    margin-right: 14%;
+    padding: 50px 40px;
+}
+
+#container_reviews_titleA {
+    font-size: 20px;
+}
+
+.container_reviewsA {
+    width: 800px;
+    padding: 30px;
+    border: 3px solid #000000;
+    height: 335px;
+    margin-bottom: 20px;
+}
+
+.review1 {
+    transform: translateY(80%);
+}
+
+.review2 {
+    transform: translateY(40%);
+}
+
+.review3 {
+    transform: translateY(10%);
+}
+
+.review4 {
+    transform: translateY(50%);
+}
+
+.review5 {
+    transform: translateY(55%);
+}
+
+#footer_imgA {
+    position: relative;
+    width: calc(100vw - 9px);
+    position: relative;
+    margin-left: -50vw;
+    left: 50%;
+    height: 350px;
+    transform: translateY(20%);
+    background: url(Images/start_img.png);
+    background-size: 50%;
 }
 
 audio:not([controls]) {
@@ -1208,14 +1465,6 @@ th {
 
 .glyphicon-eject:before {
     content: "\e078";
-}
-
-.glyphicon-chevron-left:before {
-    content: "\e079";
-}
-
-.glyphicon-chevron-right:before {
-    content: "\e080";
 }
 
 .glyphicon-plus-sign:before {
@@ -1968,7 +2217,7 @@ img {
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
     display: block;
-    max-width: 100%;
+    max-width: 800px;
     height: auto;
 }
 
@@ -7888,13 +8137,16 @@ button.close {
     }
 
 .carousel {
+    height: 335px;
     position: relative;
 }
 
 .carousel-inner {
+    line-height: 25px;
+    text-align: justify;
+    width: 80%;
+    font-size: 15px;
     position: relative;
-    overflow: hidden;
-    width: 100%;
 }
 
     .carousel-inner > .item {
@@ -7988,33 +8240,18 @@ button.close {
     left: 0;
     bottom: 0;
     width: 15%;
-    opacity: 0.5;
-    filter: alpha(opacity=50);
     font-size: 20px;
     color: #ffffff;
     text-align: center;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-    background-color: rgba(0, 0, 0, 0);
 }
 
     .carousel-control.left {
-        background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
-        background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
-        background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.0001)));
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
-        background-repeat: repeat-x;
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
     }
 
     .carousel-control.right {
         left: auto;
         right: 0;
-        background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
-        background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
-        background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.0001)), to(rgba(0, 0, 0, 0.5)));
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
-        background-repeat: repeat-x;
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
     }
 
     .carousel-control:hover,
@@ -8031,21 +8268,25 @@ button.close {
     .carousel-control .glyphicon-chevron-left,
     .carousel-control .glyphicon-chevron-right {
         position: absolute;
-        top: 50%;
-        margin-top: -10px;
+        top: 100px;
         z-index: 5;
         display: inline-block;
     }
 
     .carousel-control .icon-prev,
     .carousel-control .glyphicon-chevron-left {
-        left: 50%;
+        background: url(Images/arrow_left.png);
+        left: 30%;
+        background-repeat: no-repeat;
+        width: 60%;
         margin-left: -10px;
     }
 
     .carousel-control .icon-next,
     .carousel-control .glyphicon-chevron-right {
-        right: 50%;
+        right: 30%;
+        background: url(Images/arrow_right.png);
+        background-repeat: no-repeat;
         margin-right: -10px;
     }
 
@@ -8057,13 +8298,7 @@ button.close {
         font-family: serif;
     }
 
-        .carousel-control .icon-prev:before {
-            content: '\2039';
-        }
 
-        .carousel-control .icon-next:before {
-            content: '\203a';
-        }
 
 .carousel-indicators {
     position: absolute;
@@ -8510,7 +8745,8 @@ button.close {
 
 
 
-.btn text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+.btn {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .btn-default {
@@ -8670,12 +8906,4 @@ button.close {
 
 .panel-primary .panel-title {
     color: #fff;
-}
-
-.skladnikiimgA {
-    height:90px;
-    width: 90px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 10px;
 }

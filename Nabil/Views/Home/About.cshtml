@@ -1,7 +1,34 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "O nas";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewBag.Title</h2>
 
-<p>Use this area to provide additional information.</p>
+<p id="o_nas_opisA">
+    Falafel Nabil to miejsce stworzone przez polsko-libańską rodzinę:
+    mojego tatę - pochodzącego z Bejrutu prawnika, który od 19 lat prowadzi pub w Zabrzu,
+    oraz mnie - absolwentkę kulturoznawstwa i jednocześnie właścicielkę
+    tego lokalu. Pomysł na nazwę wziął się od imienia taty, które czytane od tyłu daje
+    słowo "Liban", co jest zupełnie przypadkowe, jednak stanowi ciekawy palindrom.
+    Motywacją do prowadzenia naszego lokalu stała się zarówno tęsknota za tradycyjnymi,
+    libańskimi przysmakami - falafelem, hummusem czy za'atarem, jak i marzenie o otwarciu
+    restauracji. Oba te elementy sprawiły, że 1 lutego 2018 r. powstał w Katowicach nasz
+    pierwszy lokal. Chcielibyśmy podzielić się z Wami właśnie tymi pysznymi i autentycznymi
+    specjałami, które sami wspominamy najlepiej. Dokładamy wszelkich starań, aby pozycje w
+    menu umożliwiły Wam poznanie prawdziwych smaków kuchni libańskiej. Nic tutaj nie jest
+    przypadkowe. Wykorzystywane składniki sprowadzane są z Libanu i osobiście selekcjonowane,
+    a dania oparte na tradycyjnych, rodzinnych przepisach. I choć jesteśmy amatorami, jeśli
+    chodzi o kuchnię, to nie brak nam pasji i chęci, by codziennie przygotowywać na
+    świeżo wszystkie nasze dania. Przyświeca nam również konkretna wizja, dlatego oferta
+    składa się jedynie z dań bezmięsnych i tak pozostanie.<br /><br />
+</p>
+<div class="o_nasA">
+    <img src='@Url.Content("~/Content/Images/big_logo.png")' id="o_nas_imgA" />
+    <div id="o_nas_mediaA">
+        Napisali o nas:<br /><br />
+        <img src='@Url.Content("~/Content/Images/listek.png")' /> <a href='https://silesion.pl/falafele-i-libanska-goscinnosc-w-katowicach-01-02-2018'>
+            Silesion - Falafele i libańska gościnność w Katowicach
+        </a>
+        <br /><br />
+        <img src='@Url.Content("~/Content/Images/listek.png")' /> <a href='http://katowice.wyborcza.pl/katowice/7,35055,23060476,prawnik-z-bejrutu-porzucil-wszystko-i-zamieszkal-w-zabrzu.html?'>Gazeta Wyborcza - Prawnik z Bejrutu porzucił wszystko i zamieszkał w Zabrzu</a>
+    </div>
+</div>

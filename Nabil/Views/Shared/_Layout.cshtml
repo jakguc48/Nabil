@@ -36,10 +36,11 @@
                             <li>@Html.ActionLink("Składniki", "Index", "Ingredients")</li>
                             <li>@Html.ActionLink("Użytkownicy", "Index", "Account")</li>
                         }
-                        <li><a href="https://www.facebook.com/falafel.nabil/?fb_dtsg_ag=AdwoLM2vYVzmXBYjVV-JFCS-Z85qsN6h_EW_qCFhwQ31Ew%3AAdwOcZmTMNbUiljYyYNunxTtLciRQ5P1xHA6jCfwLwNX_g" target="_blank"><img src="~/Content/Images/facebook.png" /></a></li>
 
 
-
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="https://www.facebook.com/falafel.nabil/" target="_blank"><img src='@Url.Content("~/Content/Images/facebook.png")' height="26px" /></a></li>
                     </ul>
                 </div>
             </div>
@@ -55,7 +56,7 @@
             <p>@Html.Partial("_LoginPartial")</p>*@
 
         <div class="footer-containerA">
-            <div id="footer-leftA">  @DateTime.Now.Year - Vegan Falafel Nabil </div>
+            <div id="footer-leftA">  @DateTime.Now.Year - Falafel Nabil </div>
             <div id="footer-rightA">@Html.Partial("_LoginPartial")</div>
         </div>
 
