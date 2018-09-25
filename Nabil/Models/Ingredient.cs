@@ -8,8 +8,6 @@ namespace Nabil.Models
 {
     public class Ingredient
     {
-
-        
         public int Id { get; set; }
 
         [Required]
@@ -19,7 +17,5 @@ namespace Nabil.Models
 
         [Display(Name = "Obrazek")]
         public string ImgUrl { get; set; }
-
-
     }
 }

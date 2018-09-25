@@ -23,9 +23,10 @@
                     <input type="submit" value="Usuń" data-confirm="usunąć?" class="btn btn-default" />
                 </center>
             </div>
+            @Html.AntiForgeryToken()
         }
         @Html.HiddenFor(m => m.Id)
-        @Html.AntiForgeryToken()
+
 
     </div>
 </center>

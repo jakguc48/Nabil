@@ -81,7 +81,7 @@ namespace Nabil.Models
 
         [Required]
         [StringLength(255)]
-        [Display(Name = "Naziwko")]
+        [Display(Name = "Nazwisko")]
         public string LastName { get; set; }
 
 

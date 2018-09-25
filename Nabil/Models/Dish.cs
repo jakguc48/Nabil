@@ -42,7 +42,5 @@ namespace Nabil.Models
 
         [Display(Name = "Cena dania - mała porcja")]
         public double? PriceSmall { get; set; }
-
-
     }
 }

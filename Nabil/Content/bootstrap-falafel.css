@@ -119,11 +119,15 @@ footer a {
 
 table {
     border-spacing: 4px;
+    
 }
 
     table.tab1A {
         border: 1px solid black;
+        border-collapse: separate;
         background: #e4e4e4;
+        border-radius: 1em;
+        overflow: hidden;
     }
 
         table.tab1A td {
@@ -134,12 +138,15 @@ table {
         }
 
         table.tab1A thead th {
-            border: 1px solid black;
+            border-top: 1px solid black;
             background: #c1e2b3;
             padding: 2px;
             margin: 2px;
         }
 
+.afds {
+    visibility: hidden;
+}
 .navbar {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe4e4e4', GradientType=0);
     -webkit-filter: none;
@@ -502,40 +509,40 @@ table {
 
 #opis_containerA {
     position: relative;
-    clear: both;
-    max-height: 670px;
-    margin-bottom: 20px;
     width: 100%;
+    height: auto;
+    margin-bottom: 40px;
     float: left;
-
 }
 
 #sk³adnikiA {
     position: absolute;
     clear: both;
+    text-align: center;
+}
+
+.containerB {
+    display: inline;
+    overflow: hidden;
+    float: left;
+    position: relative;
 }
 
 #sk³adniki_tytu³A {
-    clear: both;
 }
 
-.sk³adnik_imgA {
-    border-radius: 50%;
-    height: 60px;
-    width: 60px;
-}
 
 #danie_imgA {
     float: left;
     margin-right: 40px;
     margin-bottom: 40px;
-    width: 50%;
+    width: 550px;
     height: auto;
 }
 
 .opis_daniaA {
-    float: left;
-    width: 40%;
+    float: right;
+    width: 460px;
     background-color: #4de061;
     padding: 70px;
     text-align: justify;
@@ -558,6 +565,10 @@ table {
     text-align: center;
 }
 
+#powrót {
+    clear: left;
+}
+
 #adresA {
     float: left;
     margin-right: 40px;
@@ -572,6 +583,9 @@ table {
     float: right;
 }
 
+.tab1A th {
+    height: 50px;
+}
 
 audio:not([controls]) {
     display: none;
@@ -8656,4 +8670,12 @@ button.close {
 
 .panel-primary .panel-title {
     color: #fff;
+}
+
+.skladnikiimgA {
+    height:90px;
+    width: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
 }

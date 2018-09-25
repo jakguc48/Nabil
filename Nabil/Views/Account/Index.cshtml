@@ -66,7 +66,7 @@
             <td>@admin.FirstName</td>
             <td>@admin.LastName</td>
             <td>@admin.Phone</td>
-            <td>@admin.RoleName</td>{
+            <td>@admin.RoleName</td>
         <td>@Html.ActionLink("Edytuj pracownika", "Edit", "Account", new {id = admin.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
         <td>@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new {id = admin.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
         <td>@Html.ActionLink("Usuń pracownika", "Delete", "Account", new {id = admin.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>

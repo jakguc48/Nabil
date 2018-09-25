@@ -129,7 +129,6 @@ namespace Nabil.Controllers
         [Authorize(Roles = RoleNames.AdminOrManager)]
         public ActionResult Save(Dish dish, HttpPostedFileBase UploadImage, ICollection<int> SelectedIngredientList)
         {
-
             if (!ModelState.IsValid)
             {
                 var typ = dish.Id == 0 ? "Nowe danie" : "Edytuj danie";
@@ -173,7 +172,6 @@ namespace Nabil.Controllers
                     };
                     _context.Recipes.Add(obj);
                 }
-
             }
             else
             {

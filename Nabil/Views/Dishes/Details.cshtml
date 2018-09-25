@@ -1,25 +1,24 @@
 ﻿@using Nabil.Models
 @model Nabil.ViewModels.DishDetailsViewModel
- 
+
 @{
     ViewBag.Title = "Szczegóły";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
- 
+
 <h2>@Html.DisplayFor(model => model.Dish.Name)</h2>
 <div id="opis_containerA">
     <img src='@Url.Content("~/Content/Images/Dishes/" + Model.Dish.ImgUrl.ToString())' id="danie_imgA" />
     <div class="opis_daniaA">
         @if (Model.Dish.Description != null)
         {
-        <span>@MvcHtmlString.Create(Model.Dish.Description.Replace(Environment.NewLine, "<br />"))</span> <br/><br/>
-        }
-       
+            <span>@MvcHtmlString.Create(Model.Dish.Description.Replace(Environment.NewLine,"<br />"))</span>
+        }</br></br>
 
         <div id="waga_cenaA">
             @if (Model.Dish.Size1 != null)
             {
-                <span>@Html.DisplayFor(model => model.Dish.Size1) : </span>
+                <span>@Html.DisplayFor(model => model.Dish.Size1) - </span>
             }
             @Html.DisplayFor(model => model.Dish.Price) zł
             <img src='@Url.Content("~/Content/Images/listek3.png")' />
@@ -34,16 +33,16 @@
         </div>
     </div>
 </div>
- <br/>
+
 <div id="składnikiA">
     <h3 id="składniki_tytułA">Składniki:</h3>
- 
-    @foreach(Ingredient i in Model.Ingredients)
-    {
-        <img src='@Url.Content("~/Content/Images/Ingredients/"+ i.ImgUrl)' height="200" class="składnik_imgA" />
-    }
+
+    @foreach (Ingredient i in Model.Ingredients)
+    {<div class="containerB">
+         <img src='@Url.Content("~/Content/Images/Ingredients/"+ i.ImgUrl)' class="skladnikiimgA" />
+     </div> }
 </div>
-<p></br></br>
+</br></br><p id="powrót">
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
     @Html.ActionLink("Powrót do listy", "Index")
 </p>
