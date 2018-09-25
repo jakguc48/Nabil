@@ -16,13 +16,12 @@
 else
 {
 
-    <div class="przyciskiA">
-        <a href="#daniaA">Dania</a> <a href="#napojeA">Napoje</a>
-    </div>
-    <br /><br />
     <center>
+        <span class="przyciskiA">
+            Dania
+        </span>
+        <br /><br />
         <div id="daniaA">
-
             @foreach (var dish in Model)
             {
                 <div class="containerA">
@@ -41,74 +40,7 @@ else
     </center>
 
 }
-<br />
 
-
-
-
-
-<br /><br />
-
-
-<br /><br />
-<center>
-
-    <div id="napojeA">
-        <h2>Napoje</h2><br />
-        <table>
-            <tr>
-                <td class="napoje-nazwyA">Coca-Cola</td>
-                <td class="napoje-cenyA">5zł</td>
-            </tr>
-            <tr>
-                <td class="napoje-nazwyA">Fanta</td>
-                <td class="napoje-cenyA">5zł</td>
-            </tr>
-            <tr>
-                <td class="napoje-nazwyA">Fuzetea</td>
-                <td class="napoje-cenyA">5zł</td>
-            </tr>
-            <tr>
-                <td class="napoje-nazwyA">On Lemon</td>
-                <td class="napoje-cenyA">6zł</td>
-            </tr>
-            <tr>
-                <td class="napoje-nazwyA">Pyrsk</td>
-                <td class="napoje-cenyA">6zł</td>
-            </tr>
-            <tr>
-                <td class="napoje-nazwyA">Sprite</td>
-                <td class="napoje-cenyA">5zł</td>
-            </tr>
-            <td class="napoje-nazwyA">Woda</td>
-            <td class="napoje-cenyA">3zł</td>
-            </tr>
-        </table>
-        <br /><br />
-        <table>
-            <tr>
-                <td class="napoje-nazwyB">Coca-Cola</td>
-                <td class="napoje-nazwyB">Fanta</td>
-                <td class="napoje-nazwyB">Fuzetea</td>
-                <td class="napoje-nazwyB">On Lemon</td>
-                <td class="napoje-nazwyB">Pyrsk</td>
-                <td class="napoje-nazwyB">Sprite</td>
-                <td class="napoje-nazwyB">Woda</td>
-            </tr>
-            <tr>
-
-                <td class="napoje-cenyB">5zł</td>
-                <td class="napoje-cenyB">5zł</td>
-                <td class="napoje-cenyB">5zł</td>
-                <td class="napoje-cenyB">6zł</td>
-                <td class="napoje-cenyB">6zł</td>
-                <td class="napoje-cenyB">5zł</td>
-                <td class="napoje-cenyB">3zł</td>
-            </tr>
-        </table>
-
-    </div>
-</center>
 
 
 @section scripts

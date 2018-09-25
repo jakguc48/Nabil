@@ -8,19 +8,17 @@
 <center>
     <h3>Czy na pewno usunąć tego użytkownika?</h3>
     <div>
-        <dl class="dl-horizontal">
-            <dd>
-                <h3>>@Html.DisplayFor(model => model.UserName)<</h3>
-                <h3>>@Html.DisplayFor(model => model.Email)<</h3>
-            </dd>
-        </dl>
+ 
+        <h3>@Html.DisplayFor(model => model.UserName)</h3>
+        <h3>@Html.DisplayFor(model => model.Email)</h3>
 
+        <br /><br /><br /><br />
         @using (Html.BeginForm("Delete", "Account", new { id = Model.Id }))
         {
 
             <div class="form-actions no-color">
                 <center>
-                    <input type="submit" value="Usuń" data-confirm="usunąć?" class="btn btn-default" />
+                    <input type="submit" value="Usuń" data-confirm="Usunąć?" class="btn btn-default" />
                 </center>
             </div>
         }

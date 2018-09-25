@@ -12,7 +12,7 @@
     <div class="opis_daniaA">
         @if (Model.Dish.Description != null)
         {
-            <span>@MvcHtmlString.Create(Model.Dish.Description.Replace(Environment.NewLine,"<br />"))</span>
+            <span>@MvcHtmlString.Create(Model.Dish.Description.Replace(Environment.NewLine, "<br />"))</span>
         }</br></br>
 
         <div id="waga_cenaA">
@@ -34,15 +34,25 @@
     </div>
 </div>
 
-<div id="składnikiA">
-    <h3 id="składniki_tytułA">Składniki:</h3>
+<center><span id="skladniki_tytulA">Składniki:</span></center>
 
-    @foreach (Ingredient i in Model.Ingredients)
-    {<div class="containerB">
-         <img src='@Url.Content("~/Content/Images/Ingredients/"+ i.ImgUrl)' class="skladnikiimgA" />
-     </div> }
+<div id="skladnikiA">
+
+    @foreach (Ingredient ingr in Model.Ingredients)
+    {
+        <div class="containerB">
+            <img src='@Url.Content("~/Content/Images/Ingredients/"+ ingr.ImgUrl)' height="90px" width="90px" style="border-radius:50%;object-fit:cover;margin-right:10px;" />
+            <br />
+            <span>@Html.DisplayFor(model => ingr.Name)</span>
+
+        </div>
+    }
 </div>
-</br></br><p id="powrót">
+
+</br></br>
+</br></br><p id="powrot">
+
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+
     @Html.ActionLink("Powrót do listy", "Index")
 </p>

@@ -9,18 +9,15 @@
 <center>
     <h3>Czy na pewno usunąć to danie?</h3>
     <div>
-        <dl class="dl-horizontal">
-            <dd>
-                <h3>>@Html.DisplayFor(model => model.Name)<</h3>
-            </dd>
-        </dl>
 
+        <h3>@Html.DisplayFor(model => model.Name)</h3>
+        <br /><br /><br /><br />
         @using (Html.BeginForm("Delete", "Dishes", new { id = Model.Id }))
         {
 
             <div class="form-actions no-color">
                 <center>
-                    <input type="submit" value="Usuń" data-confirm="usunąć?" class="btn btn-default" />
+                    <input type="submit" value="Usuń" data-confirm="Usunąć?" class="btn btn-default" />
                 </center>
             </div>
             @Html.AntiForgeryToken()

@@ -163,14 +163,19 @@ namespace Nabil.Controllers
             {
                 _context.Dishes.Add(dish);
 
-                foreach (var ingredientId in SelectedIngredientList)
+                if (SelectedIngredientList != null)
                 {
-                    var obj = new Recipe()
+
+
+                    foreach (var ingredientId in SelectedIngredientList)
                     {
-                        DishId = dish.Id,
-                        IngredientId = ingredientId
-                    };
-                    _context.Recipes.Add(obj);
+                        var obj = new Recipe()
+                        {
+                            DishId = dish.Id,
+                            IngredientId = ingredientId
+                        };
+                        _context.Recipes.Add(obj);
+                    }
                 }
             }
             else

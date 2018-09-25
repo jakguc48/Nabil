@@ -14,20 +14,20 @@
 {
 
 
-    <div class="form-group">
+<div class="form-group">
 
-        @Html.LabelFor(m => m.ImgUrl)
-        <input type="file" name="UploadImage" id="UploadImage" />
+    @Html.LabelFor(m => m.ImgUrl)
+    <input type="file" name="UploadImage" id="UploadImage" />
 
-    </div>
-
-   
-    <input type="submit" class="btn btn-primary" data-confirm="Zapisać zmiany?" value="Zapisz zmiany">
+</div>
 
 
-    <br />
-    <br />
-    <br />
+<input type="submit" class="btn btn-primary" data-confirm="Zapisać zmiany?" value="Zapisz zmiany">
+
+
+<br />
+<br />
+<br />
     @Html.ActionLink("Powrót do listy", "Index")
 
 
@@ -39,14 +39,14 @@
 @section scripts
 {
     @Scripts.Render("~/bundles/jquery")
-    
-    <script>
-        jQuery(document).ready(function () {
-            jQuery('[data-confirm]').click(function (e) {
-                if (!confirm(jQuery(this).attr("data-confirm"))) {
-                    e.preventDefault();
-                }
-            });
+
+<script>
+    jQuery(document).ready(function () {
+        jQuery('[data-confirm]').click(function (e) {
+            if (!confirm(jQuery(this).attr("data-confirm"))) {
+                e.preventDefault();
+            }
         });
-    </script>
+    });
+</script>
 }

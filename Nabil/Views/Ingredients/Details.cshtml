@@ -21,13 +21,13 @@
 
         @if (Model.ImgUrl != null)
         {
-            <dt>
-                @Html.DisplayNameFor(model => model.ImgUrl)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgUrl)
+        </dt>
 
-            <dd>
-                <img src='@Url.Content("~/Content/Images/Ingredients/" + Model.ImgUrl.ToString())'/>
-            </dd>
+        <dd>
+            <img src='@Url.Content("~/Content/Images/Ingredients/" + Model.ImgUrl.ToString())' />
+        </dd>
         }
 
 

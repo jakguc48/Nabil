@@ -9,43 +9,43 @@
 @using (Html.BeginForm("Edit", "Account", FormMethod.Post, new { id = Model.Id }))
 {
     @Html.AntiForgeryToken()
-    <h4>Edytuj użytkownika</h4>
-    <hr />
+<h4>Edytuj użytkownika</h4>
+<hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Username, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
-        </div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Username, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
     </div>
+</div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
-        </div>
+<div class="form-group">
+    @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
     </div>
+</div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
-        </div>
+<div class="form-group">
+    @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
     </div>
+</div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
-        </div>
+<div class="form-group">
+    @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
     </div>
+</div>
 
-    <div class="form-actions no-color">
-        <center>
-            <input type="submit" value="Zapisz zmiany" data-confirm="zapisać?" class="btn btn-default" />
-        </center>
-    </div>
+<div class="form-actions no-color">
+    <center>
+        <input type="submit" value="Zapisz zmiany" data-confirm="zapisać?" class="btn btn-default" />
+    </center>
+</div>
 
     @Html.HiddenFor(m => m.Email)
     @Html.HiddenFor(m => m.Id)
@@ -59,13 +59,13 @@
 {
     @Scripts.Render("~/bundles/jquery")
 
-    <script>
-        jQuery(document).ready(function () {
-            jQuery('[data-confirm]').click(function (e) {
-                if (!confirm(jQuery(this).attr("data-confirm"))) {
-                    e.preventDefault();
-                }
-            });
+<script>
+    jQuery(document).ready(function () {
+        jQuery('[data-confirm]').click(function (e) {
+            if (!confirm(jQuery(this).attr("data-confirm"))) {
+                e.preventDefault();
+            }
         });
-    </script>
+    });
+</script>
 }

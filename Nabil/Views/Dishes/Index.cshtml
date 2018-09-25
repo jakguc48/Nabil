@@ -16,27 +16,28 @@
 else
 {
 
-    <div class="przyciskiA">
-        <a href="#daniaA">Dania</a> <a href="#napojeA">Napoje</a>
-    </div>
-    <br /><br />
+    
     <center>
+        <span class="przyciskiA">
+            Dania
+        </span>
+        <br /><br />
         <div id="daniaA">
 
             @foreach (var dish in Model)
             {
                 <div class="containerA">
                     <a href='@Url.Action("Details", "Dishes", new { id = dish.Id}, null)'>
-                        <img src='@Url.Content("~/Content/Images/Dishes/"+ dish.ImgUrl)' height="200" class="danie_imgA" />
+                        <img src='@Url.Content("~/Content/Images/Dishes/"+ dish.ImgUrl)' class="danie_imgA" />
                     </a><div class="overlayA">
                         <div class="textA">@Html.ActionLink(dish.Name, "Details", "Dishes", new { id = dish.Id }, null)</div>
                     </div>
                     <br />
-                    @Html.ActionLink("Edytuj", "Edit", "Dishes", new { id = dish.Id, @type = "submit", @class = "btn btn-primary" }, null)
-                    &emsp;
-                    @Html.ActionLink("Zmień zdjęcie", "ChangePhoto", "Dishes", new { id = dish.Id, @type = "submit", @class = "btn btn-primary" }, null)
-                    &emsp;
-                    @Html.ActionLink("Usuń danie", "Delete", "Dishes", new { id = dish.Id, @type = "submit", @class = "btn btn-primary" }, null)
+                    <span class="action_button2A">@Html.ActionLink("Edytuj", "Edit", "Dishes", new { id = dish.Id, @type = "submit", @class = "btn btn-primary" }, null)</span>
+                    <br />
+                    <span class="action_button2A">@Html.ActionLink("Zmień zdjęcie", "ChangePhoto", "Dishes", new { id = dish.Id, @type = "submit", @class = "btn btn-primary" }, null)</span>
+                    <br />
+                    <span class="action_button2A">@Html.ActionLink("Usuń danie", "Delete", "Dishes", new { id = dish.Id, @type = "submit", @class = "btn btn-primary" }, null)</span>
                 </div>
 
             }
@@ -49,74 +50,6 @@ else
 
 <button onclick="location.href = '@Url.Action("New", "Dishes")';" , class="btn btn-primary">Dodaj danie</button>
 <br />
-
-
-
-
-
-<br /><br />
-
-
-<br /><br />
-<center>
-
-    <div id="napojeA">
-        <h2>Napoje</h2><br />
-        <table>
-            <tr>
-                <td class="napoje-nazwyA">Coca-Cola</td>
-                <td class="napoje-cenyA">5zł</td>
-            </tr>
-            <tr>
-                <td class="napoje-nazwyA">Fanta</td>
-                <td class="napoje-cenyA">5zł</td>
-            </tr>
-            <tr>
-                <td class="napoje-nazwyA">Fuzetea</td>
-                <td class="napoje-cenyA">5zł</td>
-            </tr>
-            <tr>
-                <td class="napoje-nazwyA">On Lemon</td>
-                <td class="napoje-cenyA">6zł</td>
-            </tr>
-            <tr>
-                <td class="napoje-nazwyA">Pyrsk</td>
-                <td class="napoje-cenyA">6zł</td>
-            </tr>
-            <tr>
-                <td class="napoje-nazwyA">Sprite</td>
-                <td class="napoje-cenyA">5zł</td>
-            </tr>
-            <td class="napoje-nazwyA">Woda</td>
-            <td class="napoje-cenyA">3zł</td>
-            </tr>
-        </table>
-        <br /><br />
-        <table>
-            <tr>
-                <td class="napoje-nazwyB">Coca-Cola</td>
-                <td class="napoje-nazwyB">Fanta</td>
-                <td class="napoje-nazwyB">Fuzetea</td>
-                <td class="napoje-nazwyB">On Lemon</td>
-                <td class="napoje-nazwyB">Pyrsk</td>
-                <td class="napoje-nazwyB">Sprite</td>
-                <td class="napoje-nazwyB">Woda</td>
-            </tr>
-            <tr>
-
-                <td class="napoje-cenyB">5zł</td>
-                <td class="napoje-cenyB">5zł</td>
-                <td class="napoje-cenyB">5zł</td>
-                <td class="napoje-cenyB">6zł</td>
-                <td class="napoje-cenyB">6zł</td>
-                <td class="napoje-cenyB">5zł</td>
-                <td class="napoje-cenyB">3zł</td>
-            </tr>
-        </table>
-
-    </div>
-</center>
-
 
 @section scripts
 {

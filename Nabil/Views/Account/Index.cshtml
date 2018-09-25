@@ -9,73 +9,77 @@
 
 
 <br />
+<center>
+    <table class="tab1A">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Nazwa użytkownika</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Telefon</th>
+                <th>Funkcja</th>
+                <th>Akcja</th>
 
-<table class="tab1A">
-    <thead>
-        <tr>
-            <th>Email</th>
-            <th>Nazwa użytkownika</th>
-            <th>Imię</th>
-            <th>Nazwisko</th>
-            <th>Telefon</th>
-            <th>Funkcja</th>
-                <th>Edytuj Dane</th>
-                <th>Zmień funkcję</th>
-                <th>Usuń</th>
-            
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var manager in Model.Managers)
-        {
-        <tr>
-            <td>@manager.Email</td>
-            <td>@manager.Username</td>
-            <td>@manager.FirstName</td>
-            <td>@manager.LastName</td>
-            <td>@manager.Phone</td>
-            <td>@manager.RoleName</td>
-        <td>@Html.ActionLink("Edytuj pracownika", "Edit", "Account", new {id = manager.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
-        <td>@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new {id = manager.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
-        <td>@Html.ActionLink("Usuń pracownika", "Delete", "Account", new {id = manager.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
-    
-        </tr>
-        }
 
-        @foreach (var employee in Model.Employees)
-        {
-        <tr>
-            <td>@employee.Email</td>
-            <td>@employee.Username</td>
-            <td>@employee.FirstName</td>
-            <td>@employee.LastName</td>
-            <td>@employee.Phone</td>
-            <td>@employee.RoleName</td>
-                <td>@Html.ActionLink("Edytuj pracownika", "Edit", "Account", new {id = employee.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
-                <td>@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new {id = employee.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
-    <td>@Html.ActionLink("Usuń pracownika", "Delete", "Account", new {id = employee.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
-    </tr>
-        }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var manager in Model.Managers)
+            {
+                <tr>
+                    <td>@manager.Email</td>
+                    <td>@manager.Username</td>
+                    <td>@manager.FirstName</td>
+                    <td>@manager.LastName</td>
+                    <td>@manager.Phone</td>
+                    <td>@manager.RoleName</td>
+                    <td>
+                        <span class="action_buttonA">@Html.ActionLink("Edytuj dane", "Edit", "Account", new { id = manager.Id, @type = "submit", @class = "btn btn-primary" }, null)</span>
+                        <br /><span class="action_buttonA">@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new { id = manager.Id, @type = "submit", @class = "btn btn-primary" }, null)</span>
+                        <br /><span class="action_buttonA">@Html.ActionLink("Usuń pracownika", "Delete", "Account", new { id = manager.Id, @type = "submit", @class = "btn btn-primary" }, null)</span>
+                    </td>
+                </tr>
+            }
 
-        @foreach (var admin in Model.Admins)
-        {
-        <tr>
+            @foreach (var employee in Model.Employees)
+            {
+                <tr>
+                    <td>@employee.Email</td>
+                    <td>@employee.Username</td>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.LastName</td>
+                    <td>@employee.Phone</td>
+                    <td>@employee.RoleName</td>
+                    <td>
+                        <span class="action_buttonA">@Html.ActionLink("Edytuj dane", "Edit", "Account", new { id = employee.Id, @type = "submit", @class = "btn btn-primary" }, null)</span>
+                        <br /><span class="action_buttonA">@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new { id = employee.Id, @type = "submit", @class = "btn btn-primary" }, null)</span>
+                        <br /><span class="action_buttonA">@Html.ActionLink("Usuń pracownika", "Delete", "Account", new { id = employee.Id, @type = "submit", @class = "btn btn-primary" }, null)</span>
+                    </td>
+                </tr>
+            }
 
-            <td>@admin.Email</td>
-            <td>@admin.Username</td>
-            <td>@admin.FirstName</td>
-            <td>@admin.LastName</td>
-            <td>@admin.Phone</td>
-            <td>@admin.RoleName</td>
-        <td>@Html.ActionLink("Edytuj pracownika", "Edit", "Account", new {id = admin.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
-        <td>@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new {id = admin.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
-        <td>@Html.ActionLink("Usuń pracownika", "Delete", "Account", new {id = admin.Id, @type = "submit", @class = "btn btn-primary"}, null)</td>
-        </tr>
-        }
-    </tbody>
-</table>
+            @foreach (var admin in Model.Admins)
+            {
+                <tr>
+
+                    <td>@admin.Email</td>
+                    <td>@admin.Username</td>
+                    <td>@admin.FirstName</td>
+                    <td>@admin.LastName</td>
+                    <td>@admin.Phone</td>
+                    <td>@admin.RoleName</td>
+                    <td>
+                        <span class="action_buttonA">@Html.ActionLink("Edytuj dane", "Edit", "Account", new { id = admin.Id, @type = "submit", @class = "btn btn-primary" }, null)</span>
+                        <br /><span class="action_buttonA">@Html.ActionLink("Zmień funkcję", "ChangeRole", "Account", new { id = admin.Id, @type = "submit", @class = "btn btn-primary" }, null)</span>
+                        <br /><span class="action_buttonA">@Html.ActionLink("Usuń pracownika", "Delete", "Account", new { id = admin.Id, @type = "submit", @class = "btn btn-primary" }, null)</span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</center>
 <br />
 <button onclick="location.href = '@Url.Action("Register", "Account")';" , class="btn btn-primary">Zarejestruj nowego użytkownika</button>
 <br />
 <br />
-

@@ -22,6 +22,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
 footer {
     padding-left: 0px;
     padding-right: 0px;
@@ -31,10 +32,11 @@ footer {
 .field-validation-error, label.error {
     color: red;
 }
+
 .input-validation-error, imput.error {
     border: 4px solid red;
 }
 
-.validation-summary-errors li, span {
+.validation-summary-errors li {
     color: red;
 }
