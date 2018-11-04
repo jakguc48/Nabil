@@ -9,7 +9,8 @@ namespace Nabil
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js", "~/Scripts/jcarousellite_1.0.2.js", "~/Scripts/jcarousel.basic.js", "~/Scripts/jquery.jcarousel.min.js"
+                ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));

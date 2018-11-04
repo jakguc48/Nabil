@@ -2,108 +2,224 @@
     ViewBag.Title = "Strona główna";
 }
 
+
 <div id="startA">
     <p id="start_tekstA">
         Serwujemy tradycyjne, libańskie przysmaki, bazujące na kuchni wegańskiej/wegetariańskiej. Zjesz tu
         pyszne, świeże i autentyczne dania, przygotowywane według rodzinych przepisów z oryginalnych, libańskich
-        składników. Jesteśmy jedynym takim lokalem w mieście!
-    </p>
-</div><center>
-    <br />
-    <br />
-    <img src='@Url.Content("~/Content/Images/listek3.png")' />
-    <br />
-    <br />
-    <br />
-    <div class="container_reviewsA">
-        <span id="container_reviews_titleA">Co mówią o nas klienci?</span><br /><br />
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <p class="review1">
-                        "Można mieć trzy pozycje w karcie i skraść serca świata. Dobre, świeże produkty,
-                        większość dostarczana z Libanu, prawdziwie pyszne jedzenie, przygotowane z sercem.
-                        Właściciel cudowny człowiek. Trzymam kciuki za to miejsce i polecam wszystkim!"
-                    </p>
-                </div>
+        składników.<br />Jesteśmy jedynym takim lokalem w mieście!
+</div>
 
-                <div class="item">
-                    <p class="review2">
-                        "Bardzo dobre jedzenie, sympatyczna obsługa. Składniki po prostu ze sobą "grają" i efekt jest przepyszny (jadlem zarówno falafel z jalapeno i hummusem jaka i manoushe).
-                        Do tego cenię miejsca, gdzie można usłyszeć:
-                        "Co to jest manoushe? Chwilka, pokażę Wam, bo akurat sobie robię na obiad" :)
-                        Fajne, smaczne i autentyczne miejsce w centrum Katowic."
-                    </p>
-                </div>
+<center>
+    <br /><br /><br />
 
-                <div class="item">
-                    <p class="review3">
-                        "Nie przepadam za falafelem - jest dla mnie zdecydowanie za suchy, za nudny.
-                        Ale TO... To jest niebo! Falafelki są mega intensywne w smaku, mokre w środku,
-                        chrupiące na zewnątrz. Pyszne! Hummus - bajka. Dodatek pietruszki przypieczętował
-                        wspaniałość tego jedzonka. Ale to, co urzekło mnie najbardziej, go
-                        obsługa. Przekochany pan Nabil jest tak cudownym człowiekiem, że
-                        pomimo wracania do domu w ulewie jeszcze dłuuuuugo miałam uśmiech na twarzy.
-                        Ciepło i empatia, które od niego biją wprowadzają do lokalu tak rodzinną
-                        atmosferę, że na pewno wrócę tam jeszcze baaaardzo wiele razy. Najlepsza obsługa na świecie!"
-                    </p>
-                </div>
-                <div class="item">
-                    <p class="review1">
-                        "Spróbowaliśmy dzisiaj wszystkiego z Waszego menu.
-                        Ja jestem pod ogromnym wrażeniem. A falafel rzeczywiście najlepszy w Katowicach :)
-                        hummus obłędny. Wrócę napewno!"
-                    </p>
-                </div>
-                <div class="item">
-                    "Mój pierwszy w życiu falafel i na szczęście wzięłam sobie duży bo był tak pyszny,
-                    że musiałabym się wracać po dokładkę jakbym wzięła mały. Nigdy nie jadłam kiszonej
-                    rzepy a już na pewno nie widziałam w różowym kolorze ! pyszności !!!
-                    bardzo mnie cieszy, że żeby spróbować czegoś innego niż schabowy nie muszę
-                    lecieć aż do Libanu tylko wystarczy, że skoczę do Nabil ... Polecam gorąco,
-                    miła odmiana po zapiekankach, pizzach, kebabach i roladach z czerwoną kapustą.
-                    Obsługę trudno mi ocenić bo dla tego przesympatycznego Pana nie ma chyba nawet
-                    odpowiedniej skali (5 gwiazdek zdecydowanie za mało) !!! nie wiem co lepsze
-                    pogawędka w czasie szykowania jedzenia czy samo jedzenie ;) Dziękuję za ciasteczko. niebawem wpadnę popróbować reszty."
-                </div>
-                <div class="item">
-                    <p class="review4">
-                        "Najedzony, szczęśliwy i zaciekawiony :) Brakowało takich smaków w centrum."
-                    </p>
-                </div>
-                <div class="item">
-                    <p class="review5">
-                        "Przepyszne autentyczne libańskie jedzenie, przemiła obsługa i niesamowita
-                        historia życia jaka wiąże się z powstaniem tego miejsca mnie urzekła!
-                        Z przyjemnością wrócę po więcej! Życzę rozwoju biznesu i będę zaglądać!
-                        No i dzięki za sprzedanie również poza kulinarną, również turystycznej wizji
-                        Libanu, bardzo nas zaintrygowała!"
-                    </p>
-                </div>
+    <div class="rowA">
+        <div class="columnA">
+            <img id="myImgG1" src='@Url.Content("~/Content/Images/home2.jpg")' alt="Falafel" width="100%">
+        </div>
+        <div class="columnA">
+            <img id="myImgG2" src='@Url.Content("~/Content/Images/home3.jpg")' alt="Hummus" width="100%">
+        </div>
+        <div class="columnA">
+            <img id="myImgG3" src='@Url.Content("~/Content/Images/home4.jpg")' alt="Falafel, Hummus i Manoushe" width="100%">
+        </div>
+    </div>
+</center>
+
+<div id="myModalG" class="modalG">
+    <!-- The Close Button -->
+    <span class="closeG">&times;</span>
+    <!-- Modal Content (The Image) -->
+    <img class="modal-contentG" id="img01G">
+    <!-- Modal Caption (Image Text) -->
+    <div id="captionG"></div>
+</div>
+
+<center>
+
+    <br />
+    <br />
+
+    <div class="wrapper">
+        <h1>Co mówią o nas klienci?</h1>
+        <div class="jcarousel-wrapper">
+            <div class="jcarousel">
+                <ul>
+                    <li>
+                        <div id="CommentImg">
+                            <img src='@Url.Content("~/Content/Images/square.png")' width="800" height="400" alt="" />
+                            <div class="CommentText">
+                                "Można mieć trzy pozycje w karcie i skraść serca świata. Dobre, świeże produkty,
+                                większość dostarczana z Libanu, prawdziwie pyszne jedzenie, przygotowane z sercem.
+                                Właściciel cudowny człowiek. Trzymam kciuki za to miejsce i polecam wszystkim!"
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="CommentImg">
+                            <img src='@Url.Content("~/Content/Images/square.png")' width="800" height="400" alt="" />
+                            <div class="CommentText">
+                                "Bardzo dobre jedzenie, sympatyczna obsługa. Składniki po prostu ze sobą "grają" i efekt jest przepyszny (jadlem zarówno falafel z jalapeno i hummusem jaka i manoushe).
+                                Do tego cenię miejsca, gdzie można usłyszeć:
+                                "Co to jest manoushe? Chwilka, pokażę Wam, bo akurat sobie robię na obiad" :)
+                                Fajne, smaczne i autentyczne miejsce w centrum Katowic."
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="CommentImg">
+                            <img src='@Url.Content("~/Content/Images/square.png")' width="800" height="400" alt="" />
+                            <div class="CommentText">
+                                "Nie przepadam za falafelem - jest dla mnie zdecydowanie za suchy, za nudny.
+                                Ale TO... To jest niebo! Falafelki są mega intensywne w smaku, mokre w środku,
+                                chrupiące na zewnątrz. Pyszne! Hummus - bajka. Dodatek pietruszki przypieczętował
+                                wspaniałość tego jedzonka. Ale to, co urzekło mnie najbardziej, to
+                                obsługa. Przekochany pan Nabil jest tak cudownym człowiekiem, że
+                                pomimo wracania do domu w ulewie jeszcze dłuuuuugo miałam uśmiech na twarzy.
+                                Ciepło i empatia, które od niego biją wprowadzają do lokalu tak rodzinną
+                                atmosferę, że na pewno wrócę tam jeszcze baaaardzo wiele razy. Najlepsza obsługa na świecie!"
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="CommentImg">
+                            <img src='@Url.Content("~/Content/Images/square.png")' width="800" height="400" alt="" />
+                            <div class="CommentText">
+                                "Najedzony, szczęśliwy i zaciekawiony :) Brakowało takich smaków w centrum."
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="CommentImg">
+                            <img src='@Url.Content("~/Content/Images/square.png")' width="800" height="400" alt="" />
+                            <div class="CommentText">
+                                "Spróbowaliśmy dzisiaj wszystkiego z Waszego menu.
+                                Ja jestem pod ogromnym wrażeniem. A falafel rzeczywiście najlepszy w Katowicach :)
+                                hummus obłędny. Wrócę napewno!"
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="CommentImg">
+                            <img src='@Url.Content("~/Content/Images/square.png")' width="800" height="400" alt="" />
+                            <div class="CommentText">
+                                "Mój pierwszy w życiu falafel i na szczęście wzięłam sobie duży bo był tak pyszny,
+                                że musiałabym się wracać po dokładkę jakbym wzięła mały. Nigdy nie jadłam kiszonej
+                                rzepy a już na pewno nie widziałam w różowym kolorze ! pyszności !!!
+                                bardzo mnie cieszy, że żeby spróbować czegoś innego niż schabowy nie muszę
+                                lecieć aż do Libanu tylko wystarczy, że skoczę do Nabil ... Polecam gorąco,
+                                miła odmiana po zapiekankach, pizzach, kebabach i roladach z czerwoną kapustą.
+                                Obsługę trudno mi ocenić bo dla tego przesympatycznego Pana nie ma chyba nawet
+                                odpowiedniej skali (5 gwiazdek zdecydowanie za mało) !!! nie wiem co lepsze
+                                pogawędka w czasie szykowania jedzenia czy samo jedzenie ;) Dziękuję za ciasteczko. niebawem wpadnę popróbować reszty."
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="CommentImg">
+                            <img src='@Url.Content("~/Content/Images/square.png")' width="800" height="400" alt="" />
+                            <div class="CommentText">
+                                "Przepyszne autentyczne libańskie jedzenie, przemiła obsługa i niesamowita
+                                historia życia jaka wiąże się z powstaniem tego miejsca mnie urzekła!
+                                Z przyjemnością wrócę po więcej! Życzę rozwoju biznesu i będę zaglądać!
+                                No i dzięki za sprzedanie również poza kulinarną, również turystycznej wizji
+                                Libanu, bardzo nas zaintrygowała!"
+                            </div>
+                        </div>
+                    </li>
+
+
+                </ul>
             </div>
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-
-            </a>
+            <p class="jcarousel-pagination"></p>
         </div>
     </div>
 
-    <br /><br /><img src='@Url.Content("~/Content/Images/listek3.png")' /><br /><br />
+
+
+    <br /><br /><br /><img src='@Url.Content("~/Content/Images/listek3.png")' /><br /><br /><br />
+
+    <table class="pics_mainA">
+        <tr class="pics_main_rowA">
+            <td class="pics_main_dataA">
+                <img src='@Url.Content("~/Content/Images/bplant.png")' />
+            </td>
+            <td><img src='@Url.Content("~/Content/Images/bbook.png")' /></td>
+            <td><img src='@Url.Content("~/Content/Images/bdish.png")' /></td>
+            <td><img src='@Url.Content("~/Content/Images/bdog.png")' /></td>
+        </tr>
+        <tr ="pics_main_rowA">
+            <td>kuchnia bezmięsna</td>
+            <td>rodzinne przepisy</td>
+            <td>przygotowywane na miejscu</td>
+            <td>przyjazne czworonogom</td>
+        </tr>
+
+
+
+    </table>
+
+
+    <br /><br /><br /><img src='@Url.Content("~/Content/Images/listek3.png")' /><br /><br />
+
 
 </center>
-<div id="footer_imgA" />GODZINY OTWARCIA</div>
+<div id="footer_imgA">
+    <div id="footer_textA">
+        <div id="hoursA">
+            <img src='@Url.Content("~/Content/Images/clock.png")' /> <strong>Godziny otwarcia</strong> <br /><br />
+            pon. - sob.: 12:00 - 20:00<br /><br />
+            niedz.: nieczynne
+        </div>
+        <div id="adresB">
+            <img src='@Url.Content("~/Content/Images/pin.png")' /><strong>Adres</strong><br /><br />
+            ul. Mariacka 26<br />
+            <small>(wejście w bramie od ul. Francuskiej 6)</small><br />
+            40-001 Katowice
+        </div>
+    </div>
+</div>
 
 
 @section scripts
 {
 
     @Scripts.Render("~/bundles/jquery")
+
+    <script>
+        var modal = document.getElementById('myModalG');
+
+        var img1 = document.getElementById('myImgG1');
+        var img2 = document.getElementById('myImgG2');
+        var img3 = document.getElementById('myImgG3');
+        var modalImg = document.getElementById("img01G");
+        var captionText = document.getElementById("captionG");
+
+        img1.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+        img2.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+        img3.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+
+        var span = document.getElementsByClassName("closeG")[0];
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+    </script>
+
+
+
+
+
 }
