@@ -885,21 +885,27 @@ table.tab2A {
 
 #footer_textA {
     text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.5);
-    font-size: 25px;
-    margin-bottom: 7%;
-    margin-left: 27%;
-    padding: 100px 0;
+
     color: #FFFFFF;
 }
 
 #hoursA {
-    padding-right: 60px;
-    margin-right: 60px;
-    float: left;
-    border-right: 3px solid #FFFFFF;
+    line-height: 25px;
+    font-size: 26px;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-21%, -50%);
 }
 
 #adresB {
+    line-height: 25px;
+    font-size: 26px;
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    transform: translate(-21%, -50%);
+
 }
 
 audio:not([controls]) {
